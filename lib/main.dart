@@ -1,10 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'pages/loading_screen.dart';
-import 'pages/active_walking.dart';
+import 'pages/home.dart';
 
 
-void main() => runApp(MaterialApp(
-  home: Active_Walking(
-
-  ),
+void main() async => runApp(MaterialApp(
+  home: Loading(),
 ));
