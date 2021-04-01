@@ -14,7 +14,7 @@ class _Active_WalkingState extends State<Active_Walking> {
         title: Image.asset('images/logo.png', fit: BoxFit.cover, height: 120.0, width: 255.0,),
         centerTitle: true,
       ),
-      body: ,
+      body: Text(" "),
     );;
   }
 }
