@@ -12,7 +12,7 @@ class _Active_WalkingState extends State<Active_Walking> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Image.asset('images/logo.png', fit: BoxFit.cover, height: 120.0, width: 255.0,),
+        title: Text("Měřič aktivity"),
         centerTitle: true,
       ),
       body: Container(

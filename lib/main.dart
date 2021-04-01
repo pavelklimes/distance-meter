@@ -6,5 +6,5 @@ import 'pages/active_walking.dart';
 
 
 void main() async => runApp(MaterialApp(
-  home: Active_Walking(),
+  home: Loading(),
 ));
