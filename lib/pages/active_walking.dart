@@ -10,10 +10,11 @@ class _Active_WalkingState extends State<Active_Walking> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //TODO: sem se přidává co chceš v appbaru
+        backgroundColor: Colors.blue,
+        title: Image.asset('images/logo.png', fit: BoxFit.cover, height: 120.0, width: 255.0,),
+        centerTitle: true,
       ),
-      body: //TODO: sem se přídáva co chceš v body
-      ,
+      body: ,
     );;
   }
 }

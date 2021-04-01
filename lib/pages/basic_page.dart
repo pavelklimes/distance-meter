@@ -12,12 +12,14 @@ import 'package:flutter/material.dart';
 
 ------------------------------------------------------
 Scaffold(
-  appBar: AppBar(
-    //TODO: sem se přidává co chceš v appbaru
-  ),
-  body: //TODO: sem se přídáva co chceš v body
-  ,
-);
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Image.asset('images/logo.png', fit: BoxFit.cover, height: 120.0, width: 255.0,),
+        centerTitle: true,
+        //TODO: Sem přidej co dalšího chceš v appbaru
+      ),
+      body: TODO: Sem přidej co chceš v body,
+    );;
 ------------------------------------------------------
 
 
