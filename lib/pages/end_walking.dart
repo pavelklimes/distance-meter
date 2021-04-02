@@ -31,7 +31,7 @@ class End_Walking extends StatelessWidget {
             ourTime,
             style: TextStyle(
               color: Colors.black,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.normal,
               fontSize: 47.3,
 
             ),

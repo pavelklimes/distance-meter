@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="klimesapps.distance_meter">
    <application
-        android:label="distance_meter"
+        android:label="Dinstance Meter"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
