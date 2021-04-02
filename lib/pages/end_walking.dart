@@ -5,11 +5,22 @@ class End_Walking extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Image.asset('images/logo.png', fit: BoxFit.cover, height: 120.0, width: 255.0,),
+        backgroundColor: Colors.limeAccent[200],
+        title: Text("Konec aktivity", style: TextStyle(color: Colors.grey[800]),),
         centerTitle: true,
       ),
-      body: Text(" "),
+      body: Column(
+        children: <Widget>[
+          SizedBox(height: 550.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+          Align(
+            alignment: Alignment(-0.0, 0.0),
+            child: Image.asset(
+              "images/watermarks/watermark.png",
+              height: 100, width: 250,
+            ),
+          )
+        ],
+      ),
     );;
   }
 }
