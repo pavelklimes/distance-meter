@@ -1,6 +1,7 @@
 import 'package:distance_meter/pages/active_walking.dart';
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 
 
@@ -11,7 +12,15 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
+
+  @override
+  void initState() {
+    super.initState();
+   // Phoenix.rebirth(context);
+  }
+
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,

@@ -84,6 +84,8 @@ class _Active_WalkingState extends State<Active_Walking> {
 
                       ourTime = get_time();
 
+                      _stopWatchTimer.onExecute.add(StopWatchExecute.reset);
+
                       setState(() {
                         Navigator.push(
                           context,
@@ -101,11 +103,12 @@ class _Active_WalkingState extends State<Active_Walking> {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.grey[100],
+                        fontSize: 21,
                       ),
                     ),
                   )
               ),
-              SizedBox(height: 20,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+              SizedBox(height: 22.8,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
               Image.asset(
                 "images/watermarks/watermark.png",
                 height: 100, width: 250,

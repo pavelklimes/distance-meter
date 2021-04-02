@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:distance_meter/pages/active_walking.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:distance_meter/main.dart';
+import 'package:distance_meter/pages/home.dart';
 
 class End_Walking extends StatelessWidget {
   @override
@@ -36,7 +39,65 @@ class End_Walking extends StatelessWidget {
 
             ),
           ),
-          SizedBox(height: 200.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+          SizedBox(height: 100,),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ButtonTheme(
+                  minWidth: 125.0,
+                  height: 60.0,
+                  child: RaisedButton(
+
+                    onPressed: () {},
+
+                    color: Colors.lightGreenAccent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(60),
+                    ),
+                    child: Text(
+                      "Screenshot",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[850],
+                        fontSize: 21,
+                      ),
+                    ),
+                  )
+              ),
+              SizedBox(width: 25,),
+              ButtonTheme(
+                  minWidth: 140.0,
+                  height: 60.0,
+                  child: RaisedButton(
+
+                    onPressed: () {
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Home()),
+                        );
+                    },
+
+                    color: Colors.greenAccent[400],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(60),
+                    ),
+                    child: Text(
+                      "Home",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[850],
+                        fontSize: 21,
+                      ),
+                    ),
+                  )
+              ),
+            ],
+          ),
+
+
+          SizedBox(height: 100.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
           Align(
             alignment: Alignment(-0.0, 0.0),
             child: Image.asset(
