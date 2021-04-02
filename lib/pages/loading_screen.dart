@@ -43,9 +43,8 @@ class _LoadingState extends State<Loading> {
             ),
             Image.asset(
               "images/logo_full.png",
-              height: 200, width: 200,
+              height: 300, width: 300,
             ),
-
           ],
         ),
       ),
