@@ -33,7 +33,21 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: Text(""),
+      body: Container(
+      height: 70,
+      width: 70,
+      child: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Home()),
+          );
+
+        },
+        backgroundColor: Colors.white,
+        child: Icon(Icons.arrow_forward, color: Colors.grey.shade200, size: 35,),
+      ),
+    ),
     );
   }
 }
@@ -55,32 +69,50 @@ class IntroScreen extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(145, 40, 135, 0),
+            padding: const EdgeInsets.fromLTRB(135, 20, 135, 0),
             child: Image.asset("images/logo.png", width: 120, height: 120,),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(30, 50, 0, 0),
-            child: Text("Vítejte,", style: TextStyle(fontSize: 50),),
+            padding: const EdgeInsets.fromLTRB(30, 30, 0, 0),
+            child: Text("Vítejte,", style: TextStyle(fontSize: 30),),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(50, 0, 50, 0)),
-            Text(
-              "Děkujeme za stažení naší aplikace, na měření uražené vzdálenosti",
-              style: TextStyle(
-              fontSize: 20,
-              ),
-            ),
+            padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+            child: Text("Děkujeme za stažení naší aplikace pro", style: TextStyle(fontSize: 18,),),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+            child: Text("měření uražené vzdálenosti.", style: TextStyle(fontSize: 18,),),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
+            child: Text("V případě potřeby je návod v Menu v", style: TextStyle(fontSize: 18,),),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+            child: Text("kolonce Info, které najdete", style: TextStyle(fontSize: 18,),),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+            child: Text("na domovské obrazovce.", style: TextStyle(fontSize: 18,),),
+          ),
+
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Home()),
-            );
-        },
-        backgroundColor: Colors.limeAccent.shade200,
-        child: Icon(Icons.arrow_forward, color: Colors.grey.shade800,),
+      floatingActionButton: Container(
+        height: 70,
+        width: 70,
+        child: FloatingActionButton(
+          onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+
+          },
+          backgroundColor: Colors.limeAccent.shade200,
+          child: Icon(Icons.arrow_forward, color: Colors.grey.shade800, size: 35,),
+        ),
       ),
     );
   }
