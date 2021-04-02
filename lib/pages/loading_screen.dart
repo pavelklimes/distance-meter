@@ -15,7 +15,7 @@ class _LoadingState extends State<Loading> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 500), () {
+    Future.delayed(const Duration(seconds: 5), () {
 
       setState(() {
         Navigator.push(
