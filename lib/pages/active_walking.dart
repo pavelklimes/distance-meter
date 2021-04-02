@@ -4,8 +4,17 @@ import 'package:flutter/rendering.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:distance_meter/pages/home.dart';
 
+
 final StopWatchTimer _stopWatchTimer = StopWatchTimer();
 
+var ourTime;
+dynamic get_time() {
+  var time = StopWatchTimer.getDisplayTime(_stopWatchTimer.rawTime.value);
+  print(time);
+  return time;
+
+
+}
 
 class Active_Walking extends StatefulWidget {
   @override
@@ -16,10 +25,9 @@ class _Active_WalkingState extends State<Active_Walking> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _stopWatchTimer.onExecute.add(StopWatchExecute.start);
-    _stopWatchTimer.rawTime.listen((value) => print('rawTime $value ${StopWatchTimer.getDisplayTime(value)}'));
+   // _stopWatchTimer.rawTime.listen((value) => print('rawTime $value ${StopWatchTimer.getDisplayTime(value)}'));
   }
 
   final _isHours = true;
@@ -64,9 +72,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                 }
               ),
 
-
-              //TODO: Sem dopsat údaje: 1. Jak dlouhou aktivita probíha.
-              //TODO:                   2. Kolik km je uraženo.
+              //TODO: měření délky cesty
 
               SizedBox(height: 180.0,),
               ButtonTheme(
@@ -76,7 +82,7 @@ class _Active_WalkingState extends State<Active_Walking> {
 
                     onPressed: () {
 
-
+                      ourTime = get_time();
 
                       setState(() {
                         Navigator.push(

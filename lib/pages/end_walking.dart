@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:distance_meter/pages/active_walking.dart';
 
 class End_Walking extends StatelessWidget {
   @override
@@ -13,6 +14,11 @@ class End_Walking extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
+
+          // TODO: Využij proměnnou ourTime a vypiš dobu trvání
+
+
+
           SizedBox(height: 540.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
           Align(
             alignment: Alignment(-0.0, 0.0),
