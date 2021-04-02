@@ -19,46 +19,49 @@ class _HomeState extends State<Home> {
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(120, 280, 120, 50),
-        child: Column(
-          children: [
-            ButtonTheme(
-                minWidth: 180.0,
-                height: 80.0,
-                child: RaisedButton(
+      body: Container(
+        child: Align(
+          alignment: Alignment(-0.0, 0.20),
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: 300.0,),
+              ButtonTheme(
+                  minWidth: 150.0,
+                  height: 70.0,
+                  child: RaisedButton(
 
-                  onPressed: () {
-                    //TODO: Dodělat ukončení měření
+                    onPressed: () {
 
-                    setState(() {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Active_Walking()),
-                      );
-                    });
-                  },
 
-                  color: Colors.limeAccent.shade700,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(60),
-                  ),
-                  child: Text(
-                    "Start",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[100],
-                      fontSize: 30,
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Active_Walking()),
+                        );
+                      });
+                    },
+
+                    color: Colors.limeAccent[400],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(60),
                     ),
-                  ),
-                )
-            ),
-            SizedBox(height: 0,),
-            Image.asset(
-              "images/watermarks/watermark.png",
-              height: 100, width: 250,
-            ),
-          ],
+                    child: Text(
+                      "Start",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[800],
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  )
+              ),
+              SizedBox(height: 170,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+              Image.asset(
+                "images/watermarks/watermark.png",
+                height: 100, width: 250,
+              ),
+            ],
+          ),
         ),
       ),
     );
