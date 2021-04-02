@@ -15,7 +15,7 @@ class _LoadingState extends State<Loading> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 5/*dát na 5*/), () {
 
       setState(() {
         Navigator.push(
@@ -30,7 +30,7 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.limeAccent.shade200,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
         child: Column(
@@ -38,13 +38,14 @@ class _LoadingState extends State<Loading> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SpinKitThreeBounce(
-              color: Colors.white,
+              color: Colors.red,
               size: 50.0,
             ),
             Image.asset(
-              "images/logo.png",
-              height: 300, width: 300,
+              "images/logo_full.png",
+              height: 200, width: 200,
             ),
+
           ],
         ),
       ),

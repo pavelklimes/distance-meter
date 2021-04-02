@@ -12,11 +12,11 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.blue,
-        title: Image.asset('images/logo.png', fit: BoxFit.cover, height: 120.0, width: 255.0,),
-        centerTitle: true,
-        //TODO: Sem přidej co dalšího chceš v appbaru
+        title: Text("Klimes Systems"),
       ),
-      body: Container()
+      body: Column(
+
+      ),
     );
   }
 }
