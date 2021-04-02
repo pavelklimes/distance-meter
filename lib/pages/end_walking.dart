@@ -97,7 +97,7 @@ class End_Walking extends StatelessWidget {
           ),
 
 
-          SizedBox(height: 100.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+          SizedBox(height: 41.8,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
           Align(
             alignment: Alignment(-0.0, 0.0),
             child: Image.asset(
