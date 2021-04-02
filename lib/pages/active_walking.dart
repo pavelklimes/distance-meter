@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:distance_meter/pages/end_walking.dart';
 import 'package:flutter/rendering.dart';
 
-//Smažs
-
 class Active_Walking extends StatefulWidget {
   @override
   _Active_WalkingState createState() => _Active_WalkingState();
