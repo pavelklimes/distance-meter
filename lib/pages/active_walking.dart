@@ -105,7 +105,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                     ),
                   )
               ),
-              SizedBox(height: 70,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+              SizedBox(height: 20,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
               Image.asset(
                 "images/watermarks/watermark.png",
                 height: 100, width: 250,
