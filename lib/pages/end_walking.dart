@@ -6,12 +6,13 @@ class End_Walking extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.limeAccent[200],
+        automaticallyImplyLeading: false,
         title: Text("Konec aktivity", style: TextStyle(color: Colors.grey[800]),),
         centerTitle: true,
       ),
       body: Column(
         children: <Widget>[
-          SizedBox(height: 550.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+          SizedBox(height: 570.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
           Align(
             alignment: Alignment(-0.0, 0.0),
             child: Image.asset(
