@@ -1,11 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'pages/loading_screen.dart';
 import 'pages/home.dart';
 import 'pages/active_walking.dart';
 import 'pages/end_walking.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 
 void main() async => runApp(MaterialApp(
   home: Loading(),
-));//hi
+));
+

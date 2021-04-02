@@ -1,5 +1,6 @@
 import 'package:distance_meter/pages/active_walking.dart';
 import 'package:flutter/material.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -31,8 +32,6 @@ class _HomeState extends State<Home> {
                   child: RaisedButton(
 
                     onPressed: () {
-
-
                       setState(() {
                         Navigator.push(
                           context,
@@ -67,3 +66,15 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
