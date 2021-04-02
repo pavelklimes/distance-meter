@@ -8,4 +8,4 @@ import 'pages/end_walking.dart';
 
 void main() async => runApp(MaterialApp(
   home: Loading(),
-));
+));//hi
