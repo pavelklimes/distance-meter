@@ -74,7 +74,7 @@ class _Active_WalkingState extends State<Active_Walking> {
 
               //TODO: měření délky cesty
 
-              SizedBox(height: 180.0,),
+              SizedBox(height: 130.0,),
               ButtonTheme(
                   minWidth: 150.0,
                   height: 70.0,

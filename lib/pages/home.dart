@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
           alignment: Alignment(-0.0, 0.20),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 300.0,),
+              SizedBox(height: 270.0,),
               ButtonTheme(
                   minWidth: 150.0,
                   height: 70.0,
@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
                     ),
                   )
               ),
-              SizedBox(height: 120,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+              SizedBox(height: 100,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
               Image.asset(
                 "images/watermarks/watermark.png",
                 height: 100, width: 250,
