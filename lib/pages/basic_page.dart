@@ -19,7 +19,7 @@ Scaffold(
         //TODO: Sem přidej co dalšího chceš v appbaru
       ),
       body: TODO: Sem přidej co chceš v body,
-    );;
+    );
 ------------------------------------------------------
 
 

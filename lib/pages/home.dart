@@ -2,6 +2,7 @@ import 'package:distance_meter/pages/active_walking.dart';
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'info.dart';
 
 
 
@@ -19,18 +20,46 @@ class _HomeState extends State<Home> {
    // Phoenix.rebirth(context);
   }
 
+
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
+      appBar: new AppBar(
         backgroundColor: Colors.limeAccent.shade200,
-        title: Text(
+        title: new Text(
           "Distance meter",
           style: TextStyle(color: Colors.grey.shade800,),
         ),
-        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.grey.shade800),
       ),
+      
+      
+      //side menu
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text("tester"),
+              accountEmail: Text("test@mail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage("https://i.pravatar.cc/300"),
+              ),
+            ),
+            ListTile(
+              title: Text('Info'),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (BuildContext context) => Info()
+                ));
+              },
+            ),
+          ],
+        ),
+      ),
+
+
+      
       body: Container(
         child: Align(
           alignment: Alignment(-0.0, 0.20),
