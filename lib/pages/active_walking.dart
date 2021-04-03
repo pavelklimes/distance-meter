@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:distance_meter/pages/home.dart';
 import 'package:geolocator/geolocator.dart';
+import 'dart:math';
 
 
 final StopWatchTimer _stopWatchTimer = StopWatchTimer();
@@ -13,13 +14,7 @@ dynamic get_time() {
   var time = StopWatchTimer.getDisplayTime(_stopWatchTimer.rawTime.value);
   print(time);
   return time;
-
-
 }
-
-var distance;
-
-
 
 class Active_Walking extends StatefulWidget {
   @override
@@ -34,11 +29,6 @@ class _Active_WalkingState extends State<Active_Walking> {
     _stopWatchTimer.onExecute.add(StopWatchExecute.start);
 
     //TODO: měřič pozic (sem, kvůli tomu, že to poběží na pozadí)
-    // while(true) by mohlo dělat potíže do budoucna by se to mohlo nahradit tímto:
-    //                                                      while(okno_stále_běží) ...
-    while(true) {
-
-    }
 
   }
 
@@ -65,23 +55,25 @@ class _Active_WalkingState extends State<Active_Walking> {
           alignment: Alignment(-0.0, 0.20),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 170.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+              SizedBox(height: 170.0,),
+              //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
 
 
               StreamBuilder<int>(
-                stream: _stopWatchTimer.rawTime,
-                initialData: _stopWatchTimer.rawTime.value,
-                builder: (context, snapshot) {
-                  final value = snapshot.data;
-                  final displayTime = StopWatchTimer.getDisplayTime(value, hours: _isHours);
-                  return Text(
-                    displayTime,
-                    style: const TextStyle(
-                      fontSize: 40.0,
-                      fontWeight: FontWeight.bold,
-                    )
-                  );
-                }
+                  stream: _stopWatchTimer.rawTime,
+                  initialData: _stopWatchTimer.rawTime.value,
+                  builder: (context, snapshot) {
+                    final value = snapshot.data;
+                    final displayTime = StopWatchTimer.getDisplayTime(
+                        value, hours: _isHours);
+                    return Text(
+                        displayTime,
+                        style: const TextStyle(
+                          fontSize: 40.0,
+                          fontWeight: FontWeight.bold,
+                        )
+                    );
+                  }
               ),
 
               //TODO: měření délky cesty
@@ -93,7 +85,6 @@ class _Active_WalkingState extends State<Active_Walking> {
                   child: RaisedButton(
 
                     onPressed: () {
-
                       ourTime = get_time();
 
                       _stopWatchTimer.onExecute.add(StopWatchExecute.reset);
@@ -101,7 +92,8 @@ class _Active_WalkingState extends State<Active_Walking> {
                       setState(() {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => End_Walking()),
+                          MaterialPageRoute(builder: (context) =>
+                              End_Walking()),
                         );
                       });
                     },
@@ -120,7 +112,8 @@ class _Active_WalkingState extends State<Active_Walking> {
                     ),
                   )
               ),
-              SizedBox(height: 22.8,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+              SizedBox(height: 22.8,),
+              //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
               Image.asset(
                 "images/watermarks/watermark.png",
                 height: 100, width: 250,
@@ -132,4 +125,3 @@ class _Active_WalkingState extends State<Active_Walking> {
     );
   }
 }
-
