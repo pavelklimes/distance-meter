@@ -3,6 +3,7 @@ import 'package:distance_meter/pages/end_walking.dart';
 import 'package:flutter/rendering.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:distance_meter/pages/home.dart';
+import 'package:geolocator/geolocator.dart';
 
 
 final StopWatchTimer _stopWatchTimer = StopWatchTimer();
@@ -16,6 +17,10 @@ dynamic get_time() {
 
 }
 
+var distance;
+
+
+
 class Active_Walking extends StatefulWidget {
   @override
   _Active_WalkingState createState() => _Active_WalkingState();
@@ -27,7 +32,14 @@ class _Active_WalkingState extends State<Active_Walking> {
   void initState() {
     super.initState();
     _stopWatchTimer.onExecute.add(StopWatchExecute.start);
-   // _stopWatchTimer.rawTime.listen((value) => print('rawTime $value ${StopWatchTimer.getDisplayTime(value)}'));
+
+    //TODO: měřič pozic (sem, kvůli tomu, že to poběží na pozadí)
+    // while(true) by mohlo dělat potíže do budoucna by se to mohlo nahradit tímto:
+    //                                                      while(okno_stále_běží) ...
+    while(true) {
+
+    }
+
   }
 
   final _isHours = true;
