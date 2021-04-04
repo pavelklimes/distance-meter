@@ -27,10 +27,10 @@ class _HomeState extends State<Home> {
       appBar: new AppBar(
         backgroundColor: Colors.limeAccent.shade200,
         title: new Text(
-          "Distance meter",
+          "Menu",
           style: TextStyle(color: Colors.grey.shade800,),
         ),
-        iconTheme: IconThemeData(color: Colors.grey.shade800),
+        iconTheme: IconThemeData(color: Colors.grey.shade800,),
       ),
       
       
@@ -38,27 +38,29 @@ class _HomeState extends State<Home> {
       drawer: Drawer(
         child: ListView(
           children: [
-            UserAccountsDrawerHeader(
-              accountName: Text("tester"),
-              accountEmail: Text("test@mail.com"),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage("https://i.pravatar.cc/300"),
+            DrawerHeader(
+              padding: EdgeInsets.zero,
+              child: Container(
+                color: Colors.limeAccent.shade200,
               ),
             ),
             ListTile(
-              title: Text('Info'),
+              title: Text(
+                "Info",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (BuildContext context) => Info()
+                    builder: (BuildContext context) => Info()
                 ));
               },
             ),
           ],
         ),
       ),
-
-
       
       body: Container(
         child: Align(
