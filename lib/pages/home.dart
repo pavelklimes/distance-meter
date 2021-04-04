@@ -48,7 +48,9 @@ class _HomeState extends State<Home> {
               title: Text(
                 "Info",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.grey.shade800,
+                  fontSize: 50,
+                  fontWeight: FontWeight.w300
                 ),
               ),
               onTap: () {
