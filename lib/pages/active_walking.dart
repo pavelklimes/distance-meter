@@ -4,8 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:distance_meter/pages/home.dart';
 import 'package:geolocator/geolocator.dart';
-import 'dart:math';
-
+import 'dart:async';
 
 final StopWatchTimer _stopWatchTimer = StopWatchTimer();
 
@@ -15,6 +14,17 @@ dynamic get_time() {
   print(time);
   return time;
 }
+
+
+Position _currentPosition;
+Position _previousPosition;
+StreamSubscription<Position> _positionStream;
+double _totalDistance = 0;
+
+List<Position> locations = List<Position>();
+
+
+
 
 class Active_Walking extends StatefulWidget {
   @override
@@ -27,10 +37,59 @@ class _Active_WalkingState extends State<Active_Walking> {
   void initState() {
     super.initState();
     _stopWatchTimer.onExecute.add(StopWatchExecute.start);
-
-    //TODO: měřič pozic (sem, kvůli tomu, že to poběží na pozadí)
-
+    _calculateDistance();
   }
+
+
+  Future _calculateDistance() async {
+    _positionStream = Geolocator.getPositionStream(
+        distanceFilter: 10, desiredAccuracy: LocationAccuracy.best)
+        .listen((Position position) async {
+      if ((await Geolocator.isLocationServiceEnabled())) {
+        Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+            .then((Position position) {
+          setState(() {
+            _currentPosition = position;
+            locations.add(_currentPosition);
+
+            if (locations.length > 1) {
+              _previousPosition = locations.elementAt(locations.length - 2);
+
+              var _distanceBetweenLastTwoLocations = Geolocator.distanceBetween(
+                _previousPosition.latitude,
+                _previousPosition.longitude,
+                _currentPosition.latitude,
+                _currentPosition.longitude,
+              );
+              _totalDistance += _distanceBetweenLastTwoLocations;
+              print('Total Distance: $_totalDistance');
+            }
+          });
+        }).catchError((err) {
+          print(err);
+        });
+      } else {
+        print("GPS is off.");
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                content: const Text('Make sure your GPS is on in Settings !'),
+                actions: <Widget>[
+                  FlatButton(
+                      child: Text('OK'),
+                      onPressed: () {
+                        Navigator.of(context, rootNavigator: true).pop();
+                      })
+                ],
+              );
+            });
+      }
+    });
+  }
+
+
+
 
   final _isHours = true;
 
@@ -38,6 +97,7 @@ class _Active_WalkingState extends State<Active_Walking> {
   void dispose() {
     super.dispose();
     _stopWatchTimer.dispose();
+    _positionStream.cancel();
   }
 
   @override
@@ -76,7 +136,9 @@ class _Active_WalkingState extends State<Active_Walking> {
                   }
               ),
 
-              //TODO: měření délky cesty
+              Text(
+                  'Distance: ${_totalDistance != null ? _totalDistance > 1000 ? (_totalDistance / 1000).toStringAsFixed(2) : _totalDistance.toStringAsFixed(2) : 0} ${_totalDistance != null ? _totalDistance > 1000 ? 'KM' : 'meters' : 0}'
+              ),
 
               SizedBox(height: 130.0,),
               ButtonTheme(
