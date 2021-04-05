@@ -11,6 +11,7 @@ class _InfoState extends State<Info> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         iconTheme: IconThemeData(color: Colors.grey.shade800),
         backgroundColor: Colors.limeAccent.shade200,
         title: Padding(
@@ -25,6 +26,18 @@ class _InfoState extends State<Info> {
           ),
         ),
         centerTitle: true,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(Icons.home_outlined, color: Colors.grey.shade700,),
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                    Home()), (Route<dynamic> route) => false);
+              },
+              //tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -35,11 +48,11 @@ class _InfoState extends State<Info> {
             //////////
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+              child: Text("K čemu je aplikace určena?", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+              child: Text("Aplikace slouží, pro měření uražené vzdálenosti. Při využití aplikace se předpokládají aktivity, které vyžadují fyzickou aktivitu (chůze, běh, cyklistika, apod.)", style: TextStyle(fontSize: 16,)),
             ),
 
 
@@ -47,68 +60,34 @@ class _InfoState extends State<Info> {
             //////////
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+              child: Text("Jak aplikaci využívat?", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+              child: Text("Na domovské stránce je tlačítko [Start], po kterém se začne měřit uražená vzdálenost. Informace o měření se vypisují i během měření. Pro ukončení, stačí kliknout tlačítko [Ukončit]. Poté se vypíšou informace o měření. Na stránce s informacemi jsou tlačítka [Screeshot] a [Home]. [Screenshot] pořídí snímek obrazovky a uloží ho do mobilního telefonu. [Home] vás přenese zpět na domovskou stránku", style: TextStyle(fontSize: 16,)),
             ),
 
 
             //////////
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+              child: Text("Autoři", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+              child: Text("Autoři aplikace:\nJindřich Klimeš,\nPavel Klimeš\n________________\nKlimes Systems", style: TextStyle(fontSize: 16,)),
             ),
 
 
             //////////
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+              child: Text("Kontakt", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+              child: Text("Jindřich Klimeš:\nE-MAIL: henryklimes@protonmail.com\nTwitter: @henryklimes\n\nPavel Klimeš:\nE-MAIL: klimespavel@protonmail.com\nTwitter: @pavelklimes_", style: TextStyle(fontSize: 16,)),
             ),
-
-
-            //////////
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
-            ),
-
-
-            //////////
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
-            ),
-
-
-            //////////
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
-            ),
-
 
             SizedBox(height: 30,),
 

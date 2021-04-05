@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'home.dart';
 import 'package:after_layout/after_layout.dart';
-import 'home.dart';
+
 
 
 class Splash extends StatefulWidget {
@@ -17,12 +17,12 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     bool _seen = (prefs.getBool('seen') ?? false);
 
     if (_seen) {
-      Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => new Home()));
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+          Home()), (Route<dynamic> route) => false);
     } else {
       await prefs.setBool('seen', true);
-      Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => new IntroScreen()));
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+          IntroScreen()), (Route<dynamic> route) => false);
     }
   }
 
@@ -85,15 +85,15 @@ class IntroScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
-            child: Text("V případě potřeby je návod v Menu v", style: TextStyle(fontSize: 18,),),
+            child: Text("V případě potřeby je návod v levém horním", style: TextStyle(fontSize: 18,),),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-            child: Text("kolonce Info, které najdete", style: TextStyle(fontSize: 18,),),
+            child: Text("rohu na domovské stránce, ke které se", style: TextStyle(fontSize: 18,),),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-            child: Text("na domovské obrazovce.", style: TextStyle(fontSize: 18,),),
+            child: Text("dostanete kliknutím na tlačítko.", style: TextStyle(fontSize: 18,),),
           ),
 
         ],
@@ -103,10 +103,8 @@ class IntroScreen extends StatelessWidget {
         width: 70,
         child: FloatingActionButton(
           onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Home()),
-              );
+                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                Home()), (Route<dynamic> route) => false);
 
           },
           backgroundColor: Colors.limeAccent.shade200,

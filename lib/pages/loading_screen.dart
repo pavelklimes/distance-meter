@@ -17,12 +17,9 @@ class _LoadingState extends State<Loading> {
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 5), () {
-//sem to dej
       setState(() {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Splash()),
-        );
+        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+            Splash()), (Route<dynamic> route) => false);
       });
 
     });

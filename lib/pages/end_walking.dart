@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:distance_meter/pages/active_walking.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:distance_meter/main.dart';
 import 'package:distance_meter/pages/home.dart';
 

@@ -1,7 +1,6 @@
 import 'package:distance_meter/pages/active_walking.dart';
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'info.dart';
 
 
@@ -25,15 +24,30 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: new AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.limeAccent.shade200,
         title: new Text(
-          "Menu",
+          "Distance Meter",
           style: TextStyle(color: Colors.grey.shade800,),
         ),
-        iconTheme: IconThemeData(color: Colors.grey.shade800,),
+        centerTitle: true,
+        //iconTheme: IconThemeData(color: Colors.grey.shade800,),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(Icons.info_outline, color: Colors.grey.shade700,),
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                    Info()), (Route<dynamic> route) => false);
+              },
+              //tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
+        ),
       ),
 
 
+      /*
       //side menu
       drawer: Drawer(
         child: ListView(
@@ -83,6 +97,7 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
+      */
 
       body: Container(
         child: Align(
