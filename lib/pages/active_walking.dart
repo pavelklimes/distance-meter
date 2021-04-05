@@ -31,31 +31,41 @@ class _Active_WalkingState extends State<Active_Walking> {
   void initState() {
     super.initState();
     _stopWatchTimer.onExecute.add(StopWatchExecute.start);
-    if(pageIs_open) {
-      print("******* if was start*******");
-      count_distance();
-    }
+
+    count_distance();
+
   }
 
   void count_distance() async {
     print("******* count_distance() was start*******");
-    Position positionPoint1;
-    positionPoint1 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    Future.delayed(Duration(seconds: 10), () async {
-      print("******* delay 1.*******");
-      Position positionPoint2;
-      positionPoint2 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-      double distanceBetween_points = Geolocator.distanceBetween(
-        positionPoint1.latitude,
-        positionPoint1.longitude,
-        positionPoint2.latitude,
-        positionPoint2.longitude,
-      );
-      total_distance += distanceBetween_points;
-      Future.delayed(Duration(seconds: 10), () {
-        print("******* delay 2.*******");
+    // variables, what count_distance need
+    double distanceBetween_points;
+
+    if(pageIs_open) {
+      print("****** while(pageIs_open) was start ******");
+      distanceBetween_points = 0.0;
+
+      Position positionPoint1 = null;
+      positionPoint1 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+      print(positionPoint1);
+      Future.delayed(Duration(seconds: 10), () async {
+        print("******* delay 1.*******");
+        Position positionPoint2 = null;
+        positionPoint2 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+        print(positionPoint2);
+        distanceBetween_points = Geolocator.distanceBetween(
+          positionPoint1.latitude,
+          positionPoint1.longitude,
+          positionPoint2.latitude,
+          positionPoint2.longitude,
+        );
+        total_distance += distanceBetween_points;
+        print(total_distance);
+        Future.delayed(Duration(seconds: 10), () {
+          print("******* delay 2.*******");
+        });
       });
-    });
+    }
   }
 
 
@@ -82,7 +92,7 @@ class _Active_WalkingState extends State<Active_Walking> {
           alignment: Alignment(-0.0, 0.20),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 170.0,),
+              SizedBox(height: 120.0,),
               //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
 
 
@@ -103,9 +113,18 @@ class _Active_WalkingState extends State<Active_Walking> {
                   }
               ),
 
+              SizedBox(height: 30,),
+
+              Text(
+                  "${total_distance.roundToDouble()}",
+                  style: const TextStyle(
+                  fontSize: 40.0,
+                  fontWeight: FontWeight.bold,
+                  )
+              ),
 
 
-              SizedBox(height: 130.0,),
+              SizedBox(height: 100.0,),
               ButtonTheme(
                   minWidth: 150.0,
                   height: 70.0,
@@ -143,7 +162,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                     ),
                   )
               ),
-              SizedBox(height: 22.8,),
+              SizedBox(height: 25,),
               //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
               Image.asset(
                 "images/watermarks/watermark.png",
