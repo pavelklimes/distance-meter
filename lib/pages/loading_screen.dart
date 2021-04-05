@@ -10,6 +10,11 @@ class Loading extends StatefulWidget {
   _LoadingState createState() => _LoadingState();
 }
 
+Future<bool> _onBackPressed() {
+  Future<bool> a;
+  return a;
+}
+
 class _LoadingState extends State<Loading> {
 
   @override
@@ -27,23 +32,26 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.limeAccent.shade200,
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SpinKitThreeBounce(
-              color: Colors.red,
-              size: 50.0,
-            ),
-            Image.asset(
-              "images/logo_full.png",
-              height: 200, width: 200,
-            ),
-          ],
+    return WillPopScope(
+      onWillPop: _onBackPressed,
+      child: Scaffold(
+        backgroundColor: Colors.limeAccent.shade200,
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SpinKitThreeBounce(
+                color: Colors.red,
+                size: 50.0,
+              ),
+              Image.asset(
+                "images/logo_full.png",
+                height: 200, width: 200,
+              ),
+            ],
+          ),
         ),
       ),
     );

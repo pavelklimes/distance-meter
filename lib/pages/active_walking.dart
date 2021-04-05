@@ -91,95 +91,103 @@ class _Active_WalkingState extends State<Active_Walking> {
     _stopWatchTimer.dispose();
   }
 
+  Future<bool> _onBackPressed() {
+    Future<bool> a;
+    return a;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.limeAccent[200],
-        automaticallyImplyLeading: false,
-        title: Text("Měřič", style: TextStyle(color: Colors.grey[800]),),
-        centerTitle: true,
-      ),
+    return WillPopScope(
+      onWillPop: _onBackPressed,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.limeAccent[200],
+          automaticallyImplyLeading: false,
+          title: Text("Měřič", style: TextStyle(color: Colors.grey[800]),),
+          centerTitle: true,
+        ),
 
-      body: Container(
-        child: Align(
-          alignment: Alignment(-0.0, 0.20),
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 120.0,),
-              //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
-
-
-              StreamBuilder<int>(
-                  stream: _stopWatchTimer.rawTime,
-                  initialData: _stopWatchTimer.rawTime.value,
-                  builder: (context, snapshot) {
-                    final value = snapshot.data;
-                    final displayTime = StopWatchTimer.getDisplayTime(
-                        value, hours: _isHours);
-                    return Text(
-                        displayTime,
-                        style: const TextStyle(
-                          fontSize: 40.0,
-                          fontWeight: FontWeight.bold,
-                        )
-                    );
-                  }
-              ),
-
-              SizedBox(height: 30,),
-
-              Text(
-                  "${total_distance.roundToDouble()}",
-                  style: const TextStyle(
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.bold,
-                  )
-              ),
+        body: Container(
+          child: Align(
+            alignment: Alignment(-0.0, 0.20),
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 120.0,),
+                //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
 
 
-              SizedBox(height: 100.0,),
-              ButtonTheme(
-                  minWidth: 150.0,
-                  height: 70.0,
-                  child: RaisedButton(
+                StreamBuilder<int>(
+                    stream: _stopWatchTimer.rawTime,
+                    initialData: _stopWatchTimer.rawTime.value,
+                    builder: (context, snapshot) {
+                      final value = snapshot.data;
+                      final displayTime = StopWatchTimer.getDisplayTime(
+                          value, hours: _isHours);
+                      return Text(
+                          displayTime,
+                          style: const TextStyle(
+                            fontSize: 40.0,
+                            fontWeight: FontWeight.bold,
+                          )
+                      );
+                    }
+                ),
 
-                    onPressed: () {
-                      ourTime = get_time();
+                SizedBox(height: 30,),
 
-                      print(total_distance);
+                Text(
+                    "${total_distance.roundToDouble()}",
+                    style: const TextStyle(
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold,
+                    )
+                ),
 
-                      pageIs_open = false;
 
-                      _stopWatchTimer.onExecute.add(StopWatchExecute.reset);
+                SizedBox(height: 100.0,),
+                ButtonTheme(
+                    minWidth: 150.0,
+                    height: 70.0,
+                    child: RaisedButton(
 
-                      setState(() {
-                        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                            End_Walking()), (Route<dynamic> route) => false);
-                      });
-                    },
+                      onPressed: () {
+                        ourTime = get_time();
 
-                    color: Colors.red[400],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(60),
-                    ),
-                    child: Text(
-                      "Ukončit",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey[100],
-                        fontSize: 21,
+                        print(total_distance);
+
+                        pageIs_open = false;
+
+                        _stopWatchTimer.onExecute.add(StopWatchExecute.reset);
+
+                        setState(() {
+                          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                              End_Walking()), (Route<dynamic> route) => false);
+                        });
+                      },
+
+                      color: Colors.red[400],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(60),
                       ),
-                    ),
-                  )
-              ),
-              SizedBox(height: 25,),
-              //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
-              Image.asset(
-                "images/watermarks/watermark.png",
-                height: 100, width: 250,
-              ),
-            ],
+                      child: Text(
+                        "Ukončit",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[100],
+                          fontSize: 21,
+                        ),
+                      ),
+                    )
+                ),
+                SizedBox(height: 25,),
+                //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                Image.asset(
+                  "images/watermarks/watermark.png",
+                  height: 100, width: 250,
+                ),
+              ],
+            ),
           ),
         ),
       ),
