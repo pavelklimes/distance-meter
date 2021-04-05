@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:distance_meter/pages/active_walking.dart';
@@ -19,7 +20,7 @@ class End_Walking extends StatelessWidget {
         children: <Widget>[
 
 
-          SizedBox(height: 160,),
+          SizedBox(height: 100,),
           Align(
             alignment: Alignment(-0.51, 0.0),
             child: Text(
@@ -39,7 +40,29 @@ class End_Walking extends StatelessWidget {
 
             ),
           ),
-          SizedBox(height: 100,),
+          SizedBox(height: 20,),
+
+          Align(
+            alignment: Alignment(-0.51, 0.0),
+            child: Text(
+              "Délka trasy:",
+              style: TextStyle(
+                color: Colors.grey[850],
+                fontSize: 20,
+              ),
+            ),
+          ),
+          Text(
+            "${total_distance.roundToDouble()}",
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.normal,
+              fontSize: 47.3,
+
+            ),
+          ),
+
+          SizedBox(height: 50,),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -73,10 +96,12 @@ class End_Walking extends StatelessWidget {
 
                     onPressed: () {
 
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Home()),
-                        );
+                      total_distance = 0.0;
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                      );
                     },
 
                     color: Colors.greenAccent[400],
@@ -97,7 +122,7 @@ class End_Walking extends StatelessWidget {
           ),
 
 
-          SizedBox(height: 41.8,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+          SizedBox(height: 53,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
           Align(
             alignment: Alignment(-0.0, 0.0),
             child: Image.asset(
