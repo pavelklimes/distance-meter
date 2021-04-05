@@ -42,7 +42,18 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.zero,
               child: Container(
                 color: Colors.limeAccent.shade200,
-                child: Text(),
+                child: Center(
+                  child: Text(
+                    "Menu",
+                    style: TextStyle(
+                      fontSize: 70,
+                      fontWeight: FontWeight.w500,
+                      //decoration:  TextDecoration.underline,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.deepOrange.shade900,
+                    ),
+                  ),
+                ),
               ),
             ),
             ListTile(

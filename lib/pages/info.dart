@@ -11,23 +11,114 @@ class _InfoState extends State<Info> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Image.asset('images/logo.png', fit: BoxFit.cover, height: 120.0, width: 255.0,),
+        iconTheme: IconThemeData(color: Colors.grey.shade800),
+        backgroundColor: Colors.limeAccent.shade200,
+        title: Padding(
+          padding: const EdgeInsets.fromLTRB(60, 0, 0, 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children:
+            [
+              Icon(Icons.info, color: Colors.grey.shade800, size: 30,),
+              Container(padding: const EdgeInsets.all(8.0), child: Text("info", style: TextStyle(color: Colors.grey.shade800, fontSize: 30, fontWeight: FontWeight.w700),))
+            ],
+          ),
+        ),
         centerTitle: true,
       ),
-      body: Container(
-        height: 70,
-        width: 70,
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Home()),
-            );
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
 
-          },
-          backgroundColor: Colors.white,
-          child: Icon(Icons.arrow_forward, color: Colors.grey.shade200, size: 35,),
+
+            //////////
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
+              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+            ),
+
+
+
+            //////////
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
+              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+            ),
+
+
+            //////////
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
+              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+            ),
+
+
+            //////////
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
+              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+            ),
+
+
+            //////////
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
+              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+            ),
+
+
+            //////////
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
+              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+            ),
+
+
+            //////////
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+              child: Text("Zde se objevuje nadpis.", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
+              child: Text("Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. Zde se objevuje text. ", style: TextStyle(fontSize: 16,)),
+            ),
+
+
+            SizedBox(height: 30,),
+
+            Center(
+              child: Image.asset(
+                "images/logo_full.png",
+                height: 200, width: 200,
+              ),
+            ),
+          ],
         ),
       ),
     );
