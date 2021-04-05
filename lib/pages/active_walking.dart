@@ -31,21 +31,30 @@ class _Active_WalkingState extends State<Active_Walking> {
   void initState() {
     super.initState();
     _stopWatchTimer.onExecute.add(StopWatchExecute.start);
-    while(pageIs_open) {
-      
+    if(pageIs_open) {
+      print("******* if was start*******");
+      count_distance();
     }
   }
 
-
-  _getCurrentLocation(Position positionArgument) {
-    Geolocator
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best, forceAndroidLocationManager: true)
-        .then((Position position) {
-      setState(() {
-        positionArgument = position;
+  void count_distance() async {
+    print("******* count_distance() was start*******");
+    Position positionPoint1;
+    positionPoint1 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    Future.delayed(Duration(seconds: 10), () async {
+      print("******* delay 1.*******");
+      Position positionPoint2;
+      positionPoint2 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+      double distanceBetween_points = Geolocator.distanceBetween(
+        positionPoint1.latitude,
+        positionPoint1.longitude,
+        positionPoint2.latitude,
+        positionPoint2.longitude,
+      );
+      total_distance += distanceBetween_points;
+      Future.delayed(Duration(seconds: 10), () {
+        print("******* delay 2.*******");
       });
-    }).catchError((e) {
-      print(e);
     });
   }
 
@@ -104,6 +113,8 @@ class _Active_WalkingState extends State<Active_Walking> {
 
                     onPressed: () {
                       ourTime = get_time();
+
+                      print(total_distance);
 
                       pageIs_open = false;
 
