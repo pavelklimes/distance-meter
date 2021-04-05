@@ -97,10 +97,9 @@ class End_Walking extends StatelessWidget {
 
                       total_distance = 0.0;
 
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Home()),
-                      );
+                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                          Home()), (Route<dynamic> route) => false);
+
                     },
 
                     color: Colors.greenAccent[400],
