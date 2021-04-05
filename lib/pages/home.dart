@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-   // Phoenix.rebirth(context);
+    // Phoenix.rebirth(context);
   }
 
 
@@ -32,8 +32,8 @@ class _HomeState extends State<Home> {
         ),
         iconTheme: IconThemeData(color: Colors.grey.shade800,),
       ),
-      
-      
+
+
       //side menu
       drawer: Drawer(
         child: ListView(
@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      
+
       body: Container(
         child: Align(
           alignment: Alignment(-0.0, 0.20),
