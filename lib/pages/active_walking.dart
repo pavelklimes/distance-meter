@@ -50,7 +50,7 @@ class _Active_WalkingState extends State<Active_Walking> {
           positionPoint1 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
           if(positionPoint1 != null) {
             print("**** POSITION POINT 1 IS: $positionPoint1 ****");
-            Future.delayed(Duration(seconds: 10), () async {
+            Future.delayed(Duration(seconds: 30), () async {
               print("******* delay 1.*******");
               Position positionPoint2 = null;
               if(positionPoint2 == null) {
@@ -68,7 +68,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                       print("**** DISTANCE BETWEEN POINTS IS: $distanceBetween_points ****");
                       total_distance += distanceBetween_points;
                       print("**** TOTAL DISTANCE IS: $total_distance ****");
-                      Future.delayed(Duration(seconds: 10), () {
+                      Future.delayed(Duration(seconds: 30), () {
                         print("******* delay 2.*******");
                       }); // End of: Delay 2.
                     } // End of: if(distanceBetween_points != 0.0)
@@ -154,11 +154,8 @@ class _Active_WalkingState extends State<Active_Walking> {
                       _stopWatchTimer.onExecute.add(StopWatchExecute.reset);
 
                       setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>
-                              End_Walking()),
-                        );
+                        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                            End_Walking()), (Route<dynamic> route) => false);
                       });
                     },
 
