@@ -69,11 +69,11 @@ class IntroScreen extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(135, 20, 135, 0),
-            child: Image.asset("images/logo.png", width: 120, height: 120,),
+            padding: const EdgeInsets.fromLTRB(140, 40, 120, 0),
+            child: Image.asset("images/logo.png", width: 100, height: 100,),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(30, 30, 0, 0),
+            padding: const EdgeInsets.fromLTRB(30, 30, 0, 8),
             child: Text("Vítejte,", style: TextStyle(fontSize: 30),),
           ),
           Padding(

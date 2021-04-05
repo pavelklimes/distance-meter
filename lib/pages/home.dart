@@ -42,15 +42,19 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.zero,
               child: Container(
                 color: Colors.limeAccent.shade200,
+                child: Text(),
               ),
             ),
             ListTile(
-              title: Text(
-                "Info",
-                style: TextStyle(
-                  color: Colors.grey.shade800,
-                  fontSize: 50,
-                  fontWeight: FontWeight.w300
+              title: Padding(
+                padding: const EdgeInsets.fromLTRB(5, 5, 0, 0),
+                child: Text(
+                  "Info",
+                  style: TextStyle(
+                    color: Colors.grey.shade800,
+                    fontSize: 50,
+                    fontWeight: FontWeight.w300
+                  ),
                 ),
               ),
               onTap: () {
@@ -60,6 +64,11 @@ class _HomeState extends State<Home> {
                 ));
               },
             ),
+            SizedBox(height: 290,),
+            Image.asset(
+                  "images/logo_inline.png",
+                width: 245, height: 65,
+              ),
           ],
         ),
       ),
