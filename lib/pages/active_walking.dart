@@ -39,47 +39,42 @@ class _Active_WalkingState extends State<Active_Walking> {
   void count_distance() async {
     print("******* count_distance() was start*******");
     // variables, what count_distance need
-    double distanceBetween_points;
+    double distanceBetween_points = 0.0; // This must be 0.0 on start of while(pageIs_open)
+    Position positionPoint1 = null; // First Location
+    Position positionPoint2 = null; // Second Location
 
     while(pageIs_open) {
       print("****** while(pageIs_open) was start ******");
       distanceBetween_points = 0.0;
+      // This will be when while(pageIs_open) is running on first time
+      if(positionPoint2 == null) {
+        positionPoint1 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+        print("****** Position Point 1: $positionPoint1 ******");
+      }
+      // This will be when while(pageIs_open) is running on second time and above
+      else {
+        positionPoint1 = positionPoint2;
+        print("****** Position Point 1: $positionPoint1 ******");
+      }
+      print("****** delay 1. started ******");
+      positionPoint2 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+      print("****** Position Point 2: $positionPoint2 ******");
       if(distanceBetween_points == 0.0) {
-        Position positionPoint1 = null;
-        if(positionPoint1 == null) {
-          positionPoint1 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
-          if(positionPoint1 != null) {
-            print("**** POSITION POINT 1 IS: $positionPoint1 ****");
-            Future.delayed(Duration(seconds: 30), () async {
-              print("******* delay 1.*******");
-              Position positionPoint2 = null;
-              if(positionPoint2 == null) {
-                positionPoint2 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
-                if(positionPoint2 != null) {
-                  print("**** POSITION POINT 2 IS: $positionPoint2 ****");
-                  if(distanceBetween_points == 0.0) {
-                    distanceBetween_points = Geolocator.distanceBetween(
-                      positionPoint1.latitude,
-                      positionPoint1.longitude,
-                      positionPoint2.latitude,
-                      positionPoint2.longitude,
-                    );
-                    if(distanceBetween_points != 0.0) {
-                      print("**** DISTANCE BETWEEN POINTS IS: $distanceBetween_points ****");
-                      total_distance += distanceBetween_points;
-                      print("**** TOTAL DISTANCE IS: $total_distance ****");
-                      Future.delayed(Duration(seconds: 30), () {
-                        print("******* delay 2.*******");
-                      }); // End of: Delay 2.
-                    } // End of: if(distanceBetween_points != 0.0)
-                  } // End of: if(distanceBetween_points == 0.0)
-                } // End of: if(positionPoint2 != null)
-              } // End of: if(positionPoint2 == null)
-            }); // End of: Delay 1.
-          } // End of: if(positionPoint1 != null)
-        } // End of: if(positionPoint1 == null
+        distanceBetween_points = Geolocator.distanceBetween(
+          positionPoint1.latitude,
+          positionPoint1.longitude,
+          positionPoint2.latitude,
+          positionPoint2.longitude,
+        );
+        print("****** Distance Between is: $distanceBetween_points******");
+        total_distance += distanceBetween_points;
+        print("****** Total Distance is: $total_distance******");
+        // Delay 1.
+        await Future.delayed(Duration(seconds: 30), () {
+          print("****** delay 2. started ******");
+        }); // End of: Delay 1.
       } // End of: if(distanceBetween_points == 0.0)
-    } // End of: while(pageIs_open
+    } // End of: while(pageIs_open)
   } // End of: void count_distance()
 
 
