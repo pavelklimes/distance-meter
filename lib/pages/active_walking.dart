@@ -139,8 +139,8 @@ class _Active_WalkingState extends State<Active_Walking> {
                 Text(
                     "${total_distance.roundToDouble()}",
                     style: const TextStyle(
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.bold,
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold,
                     )
                 ),
 
