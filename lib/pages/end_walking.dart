@@ -4,6 +4,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:distance_meter/pages/active_walking.dart';
 import 'package:distance_meter/main.dart';
 import 'package:distance_meter/pages/home.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 Future<bool> _onBackPressed() {
   Future<bool> a;
@@ -103,7 +104,6 @@ class End_Walking extends StatelessWidget {
                       onPressed: () {
 
                         total_distance = 0.0;
-
                         Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
                             Home()), (Route<dynamic> route) => false);
 
