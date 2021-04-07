@@ -67,7 +67,11 @@ class _Active_WalkingState extends State<Active_Walking> {
           positionPoint2.longitude,
         );
         print("****** Distance Between is: $distanceBetween_points******");
-        total_distance += distanceBetween_points;
+
+        setState(() {
+          total_distance += distanceBetween_points;
+        });
+
         print("****** Total Distance is: $total_distance******");
         // Delay 1.
         await Future.delayed(Duration(seconds: 30), () {
