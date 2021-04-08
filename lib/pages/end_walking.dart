@@ -60,7 +60,7 @@ class End_Walking extends StatelessWidget {
               ),
             ),
             Text(
-              "${total_distance.roundToDouble()}",
+              '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(2) : total_distance.toStringAsFixed(2) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.normal,

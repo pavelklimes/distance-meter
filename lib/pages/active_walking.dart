@@ -71,7 +71,6 @@ class _Active_WalkingState extends State<Active_Walking> {
         setState(() {
           total_distance += distanceBetween_points;
         });
-
         print("****** Total Distance is: $total_distance******");
         // Delay 1.
         await Future.delayed(Duration(seconds: 30), () {
@@ -136,7 +135,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                 SizedBox(height: 30,),
 
                 Text(
-                    "${total_distance.roundToDouble()}",
+                    '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(2) : total_distance.toStringAsFixed(2) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
                     style: const TextStyle(
                       fontSize: 40.0,
                       fontWeight: FontWeight.bold,
