@@ -4,6 +4,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:distance_meter/pages/active_walking.dart';
 import 'package:distance_meter/main.dart';
 import 'package:distance_meter/pages/home.dart';
+import 'package:distance_meter/pages/waitingTo_end.dart';
 
 Future<bool> _onBackPressed() {
   Future<bool> a;
@@ -105,16 +106,16 @@ class End_Walking extends StatelessWidget {
                         total_distance = 0.0;
 
                         Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                            Home()), (Route<dynamic> route) => false);
+                            End_Loading()), (Route<dynamic> route) => false);
 
                       },
 
-                      color: Colors.greenAccent[400],
+                      color: Colors.red[300],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(60),
                       ),
                       child: Text(
-                        "Home",
+                        "Ukončit",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.grey[850],
