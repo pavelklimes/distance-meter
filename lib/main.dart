@@ -6,7 +6,6 @@ import 'pages/active_walking.dart';
 import 'pages/end_walking.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
-
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();

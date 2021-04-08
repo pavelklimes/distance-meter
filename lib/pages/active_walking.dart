@@ -56,7 +56,6 @@ class _Active_WalkingState extends State<Active_Walking> {
         positionPoint1 = positionPoint2;
         print("****** Position Point 1: $positionPoint1 ******");
       }
-      print("****** delay 1. started ******");
       positionPoint2 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
       print("****** Position Point 2: $positionPoint2 ******");
       if(distanceBetween_points == 0.0) {
@@ -71,6 +70,7 @@ class _Active_WalkingState extends State<Active_Walking> {
         setState(() {
           total_distance += distanceBetween_points;
         });
+
         print("****** Total Distance is: $total_distance******");
         // Delay 1.
         await Future.delayed(Duration(seconds: 30), () {
@@ -135,11 +135,14 @@ class _Active_WalkingState extends State<Active_Walking> {
                 SizedBox(height: 30,),
 
                 Text(
-                    '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(2) : total_distance.toStringAsFixed(2) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
-                    style: const TextStyle(
-                      fontSize: 40.0,
-                      fontWeight: FontWeight.bold,
-                    )
+                  '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(1) : total_distance.toStringAsFixed(1) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 47.3,
+
+
+                  ),
                 ),
 
 
