@@ -27,7 +27,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child: SingleChildScrollView(
         child: Scaffold(
           appBar: new AppBar(
             automaticallyImplyLeading: false,
@@ -55,7 +54,7 @@ class _HomeState extends State<Home> {
 
           /*
           //side menu
-          drawer: Drawer(
+          drawer: Drawer
             child: ListView(
               children: [
                 DrawerHeader(
@@ -105,49 +104,50 @@ class _HomeState extends State<Home> {
           ),
           */
 
-          body: Container(
-            child: Align(
-              alignment: Alignment(-0.0, 0.20),
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: 270.0,),
-                  ButtonTheme(
-                      minWidth: 150.0,
-                      height: 70.0,
-                      child: RaisedButton(
+          body: SingleChildScrollView(
+            child: Container(
+              child: Align(
+                alignment: Alignment(-0.0, 0.20),
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 270.0,),
+                    ButtonTheme(
+                        minWidth: 150.0,
+                        height: 70.0,
+                        child: RaisedButton(
 
-                        onPressed: () {
-                          setState(() {
-                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                                Active_Walking()), (Route<dynamic> route) => false);
-                          });
-                        },
+                          onPressed: () {
+                            setState(() {
+                              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                                  Active_Walking()), (Route<dynamic> route) => false);
+                            });
+                          },
 
-                        color: Colors.limeAccent[400],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(60),
-                        ),
-                        child: Text(
-                          "Start",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[800],
-                            fontSize: 20.0,
+                          color: Colors.limeAccent[400],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(60),
                           ),
-                        ),
-                      )
-                  ),
-                  SizedBox(height: 100,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
-                  Image.asset(
-                    "images/watermarks/watermark.png",
-                    height: 100, width: 250,
-                  ),
-                ],
+                          child: Text(
+                            "Start",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey[800],
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        )
+                    ),
+                    SizedBox(height: 100,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                    Image.asset(
+                      "images/watermarks/watermark.png",
+                      height: 100, width: 250,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
         ),
-      ),
     );
   }
 }

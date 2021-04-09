@@ -38,7 +38,6 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child: SingleChildScrollView(
         child: Scaffold(
           body: Container(
           height: 70,
@@ -56,7 +55,6 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
           ),
         ),
         ),
-      ),
     );
   }
 }
@@ -71,44 +69,49 @@ class IntroScreen extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.limeAccent.shade200,
-          title: Text(
-            "Vítejte",
-            style: TextStyle(color: Colors.grey.shade800,),
+          title: Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+            child: Text(
+                "Vítejte",
+                style: TextStyle(color: Colors.grey.shade800,),
+              ),
           ),
           centerTitle: true,
         ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(140, 40, 120, 0),
-              child: Image.asset("images/logo.png", width: 100, height: 100,),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(30, 30, 0, 8),
-              child: Text("Vítejte,", style: TextStyle(fontSize: 30),),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-              child: Text("Děkujeme za stažení naší aplikace pro", style: TextStyle(fontSize: 18,),),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-              child: Text("měření uražené vzdálenosti.", style: TextStyle(fontSize: 18,),),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
-              child: Text("V případě potřeby je návod v levém horním", style: TextStyle(fontSize: 18,),),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-              child: Text("rohu na domovské stránce, ke které se", style: TextStyle(fontSize: 18,),),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: Text("dostanete kliknutím na tlačítko.", style: TextStyle(fontSize: 18,),),
-            ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(140, 40, 120, 0),
+                child: Image.asset("images/logo.png", width: 100, height: 100,),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30, 30, 0, 8),
+                child: Text("Vítejte,", style: TextStyle(fontSize: 30),),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+                child: Text("Děkujeme za stažení naší aplikace pro", style: TextStyle(fontSize: 18,),),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                child: Text("měření uražené vzdálenosti.", style: TextStyle(fontSize: 18,),),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
+                child: Text("V případě potřeby je návod v levém horním", style: TextStyle(fontSize: 18,),),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                child: Text("rohu na domovské stránce, ke které se", style: TextStyle(fontSize: 18,),),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                child: Text("dostanete kliknutím na tlačítko.", style: TextStyle(fontSize: 18,),),
+              ),
 
-          ],
+            ],
+          ),
         ),
         floatingActionButton: Container(
           height: 70,
