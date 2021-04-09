@@ -71,7 +71,7 @@ class _InfoState extends State<Info> {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-                child: Text("Na domovské stránce je tlačítko [Start], po kterém se začne měřit uražená vzdálenost. Informace o měření se vypisují i během měření. Pro ukončení, stačí kliknout tlačítko [Ukončit]. Poté se vypíšou informace o měření. Na stránce s informacemi jsou tlačítka [Screeshot] a [Home]. [Screenshot] pořídí snímek obrazovky a uloží ho do mobilního telefonu. [Home] vás přenese zpět na domovskou stránku", style: TextStyle(fontSize: 16,)),
+                child: Text("Na domovské stránce je tlačítko [Start], po kterém se začne měřit uražená vzdálenost. Informace o měření se vypisují i během měření. Pro ukončení, stačí kliknout tlačítko [Ukončit]. Poté se vypíšou informace o měření. Na stránce s informacemi jsou tlačítka [Screeshot] a [Ukončit]. [Screenshot] pořídí snímek obrazovky a uloží ho do mobilního telefonu. [Ukončit] vám ukončí aplikaci.", style: TextStyle(fontSize: 16,)),
               ),
 
 

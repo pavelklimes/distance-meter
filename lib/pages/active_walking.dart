@@ -73,8 +73,9 @@ class _Active_WalkingState extends State<Active_Walking> {
 
         print("****** Total Distance is: $total_distance******");
         // Delay 1.
-        await Future.delayed(Duration(seconds: 30), () {
-          print("****** delay 2. started ******");
+        print("****** Waiting for delay 1. ******");
+        await Future.delayed(Duration(seconds: 15), () {
+          print("****** delay 1. started ******");
         }); // End of: Delay 1.
       } // End of: if(distanceBetween_points == 0.0)
     } // End of: while(pageIs_open)
