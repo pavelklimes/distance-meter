@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
             automaticallyImplyLeading: false,
             backgroundColor: Colors.limeAccent.shade200,
             title: new Text(
-              "Distance Meter",
+              "Dis/Co",
               style: TextStyle(color: Colors.grey.shade800,),
             ),
             centerTitle: true,
