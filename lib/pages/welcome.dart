@@ -38,22 +38,24 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child: Scaffold(
-        body: Container(
-        height: 70,
-        width: 70,
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Home()),
-            );
+      child: SingleChildScrollView(
+        child: Scaffold(
+          body: Container(
+          height: 70,
+          width: 70,
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
 
-          },
-          backgroundColor: Colors.white,
-          child: Icon(Icons.arrow_forward, color: Colors.grey.shade200, size: 35,),
+            },
+            backgroundColor: Colors.white,
+            child: Icon(Icons.arrow_forward, color: Colors.grey.shade200, size: 35,),
+          ),
         ),
-      ),
+        ),
       ),
     );
   }

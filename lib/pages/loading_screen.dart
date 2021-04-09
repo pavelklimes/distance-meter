@@ -34,23 +34,25 @@ class _LoadingState extends State<Loading> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child: Scaffold(
-        backgroundColor: Colors.limeAccent.shade200,
-        body: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SpinKitThreeBounce(
-                color: Colors.red,
-                size: 50.0,
-              ),
-              Image.asset(
-                "images/logo_full.png",
-                height: 200, width: 200,
-              ),
-            ],
+      child: SingleChildScrollView(
+        child: Scaffold(
+          backgroundColor: Colors.limeAccent.shade200,
+          body: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SpinKitThreeBounce(
+                  color: Colors.red,
+                  size: 50.0,
+                ),
+                Image.asset(
+                  "images/logo_full.png",
+                  height: 200, width: 200,
+                ),
+              ],
+            ),
           ),
         ),
       ),

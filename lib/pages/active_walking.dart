@@ -98,100 +98,102 @@ class _Active_WalkingState extends State<Active_Walking> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.limeAccent[200],
-          automaticallyImplyLeading: false,
-          title: Text("Měřič", style: TextStyle(color: Colors.grey[800]),),
-          centerTitle: true,
-        ),
+      child: SingleChildScrollView(
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.limeAccent[200],
+            automaticallyImplyLeading: false,
+            title: Text("Měřič", style: TextStyle(color: Colors.grey[800]),),
+            centerTitle: true,
+          ),
 
-        body: Container(
-          child: Align(
-            alignment: Alignment(-0.0, 0.20),
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 25.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+          body: Container(
+            child: Align(
+              alignment: Alignment(-0.0, 0.20),
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 25.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
 
-                Image.asset(
-                  "images/runboy.gif",
-                  height: 80.0,
-                  width: 80.0,
-                ),
-
-                SizedBox(height: 9.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
-
-                StreamBuilder<int>(
-                    stream: _stopWatchTimer.rawTime,
-                    initialData: _stopWatchTimer.rawTime.value,
-                    builder: (context, snapshot) {
-                      final value = snapshot.data;
-                      final displayTime = StopWatchTimer.getDisplayTime(
-                          value, hours: _isHours);
-                      return Text(
-                          displayTime,
-                          style: const TextStyle(
-                            fontSize: 40.0,
-                            fontWeight: FontWeight.bold,
-                          )
-                      );
-                    }
-                ),
-
-                SizedBox(height: 30,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
-
-                Text(
-                  '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(1) : total_distance.toStringAsFixed(1) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 47.3,
-
-
+                  Image.asset(
+                    "images/runboy.gif",
+                    height: 80.0,
+                    width: 80.0,
                   ),
-                ),
 
-                SizedBox(height: 80.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
-                ButtonTheme(
-                    minWidth: 150.0,
-                    height: 70.0,
-                    child: RaisedButton(
+                  SizedBox(height: 9.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
 
-                      onPressed: () {
-                        ourTime = get_time();
+                  StreamBuilder<int>(
+                      stream: _stopWatchTimer.rawTime,
+                      initialData: _stopWatchTimer.rawTime.value,
+                      builder: (context, snapshot) {
+                        final value = snapshot.data;
+                        final displayTime = StopWatchTimer.getDisplayTime(
+                            value, hours: _isHours);
+                        return Text(
+                            displayTime,
+                            style: const TextStyle(
+                              fontSize: 40.0,
+                              fontWeight: FontWeight.bold,
+                            )
+                        );
+                      }
+                  ),
 
-                        print(total_distance);
+                  SizedBox(height: 30,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
 
-                        pageIs_open = false;
+                  Text(
+                    '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(1) : total_distance.toStringAsFixed(1) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 47.3,
 
-                        _stopWatchTimer.onExecute.add(StopWatchExecute.reset);
 
-                        setState(() {
-                          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                              End_Walking()), (Route<dynamic> route) => false);
-                        });
-                      },
+                    ),
+                  ),
 
-                      color: Colors.red[400],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(60),
-                      ),
-                      child: Text(
-                        "Ukončit",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[100],
-                          fontSize: 21,
+                  SizedBox(height: 80.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                  ButtonTheme(
+                      minWidth: 150.0,
+                      height: 70.0,
+                      child: RaisedButton(
+
+                        onPressed: () {
+                          ourTime = get_time();
+
+                          print(total_distance);
+
+                          pageIs_open = false;
+
+                          _stopWatchTimer.onExecute.add(StopWatchExecute.reset);
+
+                          setState(() {
+                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                                End_Walking()), (Route<dynamic> route) => false);
+                          });
+                        },
+
+                        color: Colors.red[400],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(60),
                         ),
-                      ),
-                    )
-                ),
-                SizedBox(height: 25,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
-                Image.asset(
-                  "images/watermarks/watermark.png",
-                  height: 100, width: 250,
-                ),
-              ],
+                        child: Text(
+                          "Ukončit",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey[100],
+                            fontSize: 21,
+                          ),
+                        ),
+                      )
+                  ),
+                  SizedBox(height: 25,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                  Image.asset(
+                    "images/watermarks/watermark.png",
+                    height: 100, width: 250,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
