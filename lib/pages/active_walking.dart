@@ -48,7 +48,7 @@ class _Active_WalkingState extends State<Active_Walking> {
       distanceBetween_points = 0.0;
       // This will be when while(pageIs_open) is running on first time
       if(positionPoint2 == null) {
-        positionPoint1 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+        positionPoint1 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
         print("****** Position Point 1: $positionPoint1 ******");
       }
       // This will be when while(pageIs_open) is running on second time and above
@@ -56,7 +56,7 @@ class _Active_WalkingState extends State<Active_Walking> {
         positionPoint1 = positionPoint2;
         print("****** Position Point 1: $positionPoint1 ******");
       }
-      positionPoint2 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+      positionPoint2 = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
       print("****** Position Point 2: $positionPoint2 ******");
       if(distanceBetween_points == 0.0) {
         distanceBetween_points = Geolocator.distanceBetween(
@@ -111,9 +111,15 @@ class _Active_WalkingState extends State<Active_Walking> {
             alignment: Alignment(-0.0, 0.20),
             child: Column(
               children: <Widget>[
-                SizedBox(height: 120.0,),
-                //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                SizedBox(height: 25.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
 
+                Image.asset(
+                  "images/runboy.gif",
+                  height: 80.0,
+                  width: 80.0,
+                ),
+
+                SizedBox(height: 9.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
 
                 StreamBuilder<int>(
                     stream: _stopWatchTimer.rawTime,
@@ -132,7 +138,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                     }
                 ),
 
-                SizedBox(height: 30,),
+                SizedBox(height: 30,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
 
                 Text(
                   '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(1) : total_distance.toStringAsFixed(1) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
@@ -145,8 +151,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                   ),
                 ),
 
-
-                SizedBox(height: 100.0,),
+                SizedBox(height: 80.0,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
                 ButtonTheme(
                     minWidth: 150.0,
                     height: 70.0,
@@ -181,8 +186,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                       ),
                     )
                 ),
-                SizedBox(height: 25,),
-                //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                SizedBox(height: 25,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
                 Image.asset(
                   "images/watermarks/watermark.png",
                   height: 100, width: 250,
