@@ -85,30 +85,7 @@ class IntroScreen extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(140, 40, 120, 0),
                 child: Image.asset("images/logo.png", width: 100, height: 100,),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(30, 30, 0, 8),
-                child: Text("Vítejte,", style: TextStyle(fontSize: 30),),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-                child: Text("Děkujeme za stažení naší aplikace pro", style: TextStyle(fontSize: 18,),),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                child: Text("měření uražené vzdálenosti.", style: TextStyle(fontSize: 18,),),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
-                child: Text("V případě potřeby je návod v levém horním", style: TextStyle(fontSize: 18,),),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-                child: Text("rohu na domovské stránce, ke které se", style: TextStyle(fontSize: 18,),),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-                child: Text("dostanete kliknutím na tlačítko.", style: TextStyle(fontSize: 18,),),
-              ),
+              Center(child: Image.asset("images/wlcm.jpg"))
 
             ],
           ),
