@@ -36,7 +36,6 @@ class _HomeState extends State<Home> {
               style: TextStyle(color: Colors.grey.shade800,),
             ),
             centerTitle: true,
-            //iconTheme: IconThemeData(color: Colors.grey.shade800,),
             leading: Builder(
               builder: (BuildContext context) {
                 return IconButton(
@@ -51,66 +50,13 @@ class _HomeState extends State<Home> {
             ),
           ),
 
-
-          /*
-          //side menu
-          drawer: Drawer
-            child: ListView(
-              children: [
-                DrawerHeader(
-                  padding: EdgeInsets.zero,
-                  child: Container(
-                    color: Colors.limeAccent.shade200,
-                    child: Center(
-                      child: Text(
-                        "Menu",
-                        style: TextStyle(
-                          fontSize: 70,
-                          fontWeight: FontWeight.w500,
-                          //decoration:  TextDecoration.underline,
-                          fontStyle: FontStyle.italic,
-                          color: Colors.deepOrange.shade900,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  title: Padding(
-                    padding: const EdgeInsets.fromLTRB(5, 5, 0, 0),
-                    child: Text(
-                      "Info",
-                      style: TextStyle(
-                        color: Colors.grey.shade800,
-                        fontSize: 50,
-                        fontWeight: FontWeight.w300
-                      ),
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (BuildContext context) => Info()
-                    ));
-                  },
-                ),
-                SizedBox(height: 290,),
-                Image.asset(
-                      "images/logo_inline.png",
-                    width: 245, height: 65,
-                  ),
-              ],
-            ),
-          ),
-          */
-
           body: SingleChildScrollView(
             child: Container(
               child: Align(
                 alignment: Alignment(-0.0, 0.20),
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 270.0,),
+                    SizedBox(height: 210.0,),
                     ButtonTheme(
                         minWidth: 150.0,
                         height: 70.0,
@@ -137,7 +83,8 @@ class _HomeState extends State<Home> {
                           ),
                         )
                     ),
-                    SizedBox(height: 100,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                    SizedBox(height: 80,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                    Image.asset("images/app_icon.png", height: 100, width: 100,),
                     Image.asset(
                       "images/watermarks/watermark.png",
                       height: 100, width: 250,

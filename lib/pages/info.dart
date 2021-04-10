@@ -82,7 +82,7 @@ class _InfoState extends State<Info> {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-                child: Text("Autoři aplikace:\nJindřich Klimeš,\nPavel Klimeš\n________________\nKlimes Systems", style: TextStyle(fontSize: 16,)),
+                child: Text("Jindřich Klimeš,\nPavel Klimeš\n________________\nKlimes Systems", style: TextStyle(fontSize: 16,)),
               ),
 
 

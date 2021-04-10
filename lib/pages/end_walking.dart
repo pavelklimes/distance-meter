@@ -44,15 +44,19 @@ class _End_WalkingState extends State<End_Walking> {
                 appBar: AppBar(
                   backgroundColor: Colors.limeAccent[200],
                   automaticallyImplyLeading: false,
-                  title: Text("Konec aktivity", style: TextStyle(color: Colors.grey[800]),),
+                  title: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    child: Text("Konec aktivity", style: TextStyle(color: Colors.grey[800]),),
+                  ),
                   centerTitle: true,
                 ),
                 body: SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
 
-
-                      SizedBox(height: 100,),
+                      SizedBox(height: 15,),
+                      Image.asset("images/app_icon.png", height: 100, width: 100,),
+                      SizedBox(height: 25,),
                       Align(
                         alignment: Alignment(-0.51, 0.0),
                         child: Text(
@@ -148,7 +152,7 @@ class _End_WalkingState extends State<End_Walking> {
                       ),
 
 
-                      SizedBox(height: 53,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                      SizedBox(height: 34,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
                       Align(
                         alignment: Alignment(-0.0, 0.0),
                         child: Image.asset(
