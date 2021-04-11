@@ -106,8 +106,19 @@ class _End_WalkingState extends State<End_Walking> {
                               height: 60.0,
                               child: RaisedButton(
 
-                                onPressed: () {
-                                  _takeScreenshot();
+                                onPressed: () async {
+                                  await _takeScreenshot();
+                                  Future.delayed(const Duration(seconds: 1), () {
+                                    showDialog(context: context, builder: (context) => new AlertDialog(
+                                      title: Text("Screenshot uložen"),
+                                      content: Text("Teď můžete v klidu aplikaci vypnout."),
+                                      actions: [
+                                        FlatButton(child: Text("OK"), onPressed: () {
+                                          Navigator.of(context).pop(false);
+                                        },)
+                                      ],
+                                    ));
+                                  });
                                 },
 
                                 color: Colors.lightGreenAccent,
