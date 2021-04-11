@@ -5,7 +5,6 @@ import 'home.dart';
 import 'package:after_layout/after_layout.dart';
 
 
-
 class Splash extends StatefulWidget {
   @override
   SplashState createState() => new SplashState();
@@ -86,7 +85,6 @@ class IntroScreen extends StatelessWidget {
                 child: Image.asset("images/logo.png", width: 100, height: 100,),
               ),
               Center(child: Image.asset("images/wlcm.jpg"))
-
             ],
           ),
         ),

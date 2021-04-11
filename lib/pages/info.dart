@@ -59,7 +59,7 @@ class _InfoState extends State<Info> {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-                child: Text("Aplikace slouží, pro měření uražené vzdálenosti. Při využití aplikace se předpokládají aktivity, které vyžadují fyzickou aktivitu (chůze, běh, cyklistika, apod.)", style: TextStyle(fontSize: 16,)),
+                child: Text("Aplikace Dis/Co - Distance Counter slouží, pro měření uražené vzdálenosti. Při využití aplikace se předpokládají aktivity, které vyžadují fyzickou aktivitu (chůze, běh, cyklistika, apod.)", style: TextStyle(fontSize: 16,)),
               ),
 
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:distance_meter/pages/end_walking.dart';
 import 'package:flutter/rendering.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:distance_meter/pages/home.dart';
 import 'package:geolocator/geolocator.dart';
 import 'dart:async';
 
