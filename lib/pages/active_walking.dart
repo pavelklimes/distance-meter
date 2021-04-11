@@ -128,7 +128,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                       builder: (context, snapshot) {
                         final value = snapshot.data;
                         final displayTime = StopWatchTimer.getDisplayTime(
-                            value, hours: _isHours);
+                            value, minute: _isHours);
                         return Text(
                             displayTime,
                             style: const TextStyle(
