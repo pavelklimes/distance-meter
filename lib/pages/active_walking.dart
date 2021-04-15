@@ -7,6 +7,8 @@ import 'dart:async';
 
 final StopWatchTimer _stopWatchTimer = StopWatchTimer();
 
+
+
 var ourTime;
 dynamic get_time() {
   var time = StopWatchTimer.getDisplayTime(_stopWatchTimer.rawTime.value);
@@ -17,7 +19,7 @@ dynamic get_time() {
 // Globals variables for distance counting
 double total_distance = 0.0;
 bool pageIs_open = true;
-
+int delayTime;
 
 class Active_Walking extends StatefulWidget {
   @override
@@ -41,6 +43,14 @@ class _Active_WalkingState extends State<Active_Walking> {
     double distanceBetween_points = 0.0; // This must be 0.0 on start of while(pageIs_open)
     Position positionPoint1 = null; // First Location
     Position positionPoint2 = null; // Second Location
+    Position positionAiming = null; // Aiming Location: This is for setup GPS
+
+    for(int howMany_runs = 0; howMany_runs < 4; howMany_runs++) {
+      positionAiming = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
+      Future.delayed(Duration(seconds: delayTime), () {
+        // Nothing to do here
+      });
+    }
 
     while(pageIs_open) {
       print("****** while(pageIs_open) was start ******");
@@ -73,11 +83,13 @@ class _Active_WalkingState extends State<Active_Walking> {
         print("****** Total Distance is: $total_distance******");
         // Delay 1.
         print("****** Waiting for delay 1. ******");
-        await Future.delayed(Duration(seconds: 15), () {
+        await Future.delayed(Duration(seconds: delayTime), () {
           print("****** delay 1. started ******");
         }); // End of: Delay 1.
       } // End of: if(distanceBetween_points == 0.0)
     } // End of: while(pageIs_open)
+
+
   } // End of: void count_distance()
 
 
