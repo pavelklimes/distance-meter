@@ -1,7 +1,8 @@
 import 'package:distance_meter/pages/active_walking.dart';
 import 'package:flutter/material.dart';
 import 'info.dart';
-
+import 'settings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,22 +10,21 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  @override
 
-  @override
-  void initState() {
-    super.initState();
-    // Phoenix.rebirth(context);
-  }
+    @override
+    void initState() {
+      super.initState();
+      // Phoenix.rebirth(context);
+    }
 
-  Future<bool> _onBackPressed() {
-    Future<bool> a;
-    return a;
-  }
+    Future<bool> _onBackPressed() {
+      Future<bool> a;
+      return a;
+    }
 
-  Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: _onBackPressed,
+    Widget build(BuildContext context) {
+      return WillPopScope(
+        onWillPop: _onBackPressed,
         child: Scaffold(
           appBar: new AppBar(
             automaticallyImplyLeading: false,
@@ -34,13 +34,24 @@ class _HomeState extends State<Home> {
               style: TextStyle(color: Colors.grey.shade800,),
             ),
             centerTitle: true,
+            actions: [
+              IconButton(
+                icon: Icon(Icons.settings, color: Colors.grey.shade700),
+                onPressed: () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) =>
+                          Settings()), (Route<dynamic> route) => false);
+                },
+              ),
+            ],
             leading: Builder(
               builder: (BuildContext context) {
                 return IconButton(
                   icon: Icon(Icons.info_outline, color: Colors.grey.shade700,),
                   onPressed: () {
-                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                        Info()), (Route<dynamic> route) => false);
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(builder: (context) =>
+                            Info()), (Route<dynamic> route) => false);
                   },
                   //tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
                 );
@@ -62,8 +73,10 @@ class _HomeState extends State<Home> {
 
                           onPressed: () {
                             setState(() {
-                              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                                  Active_Walking()), (Route<dynamic> route) => false);
+                              Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(builder: (context) =>
+                                      Active_Walking()), (
+                                  Route<dynamic> route) => false);
                             });
                           },
 
@@ -81,8 +94,10 @@ class _HomeState extends State<Home> {
                           ),
                         )
                     ),
-                    SizedBox(height: 80,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
-                    Image.asset("images/app_icon.png", height: 100, width: 100,),
+                    SizedBox(height: 80,),
+                    //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                    Image.asset(
+                      "images/app_icon.png", height: 100, width: 100,),
                     Image.asset(
                       "images/watermarks/watermark.png",
                       height: 100, width: 250,
@@ -93,6 +108,6 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-    );
+      );
+    }
   }
-}
