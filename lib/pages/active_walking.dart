@@ -31,7 +31,6 @@ class _Active_WalkingState extends State<Active_Walking> {
   @override
   void initState() {
     super.initState();
-    _stopWatchTimer.onExecute.add(StopWatchExecute.start);
 
     count_distance();
 
@@ -41,12 +40,12 @@ class _Active_WalkingState extends State<Active_Walking> {
     showDialog(
         context: context,
         builder: (context) {
-          Future.delayed(Duration(seconds: aimingTime * 999), () {
+          Future.delayed(Duration(seconds: aimingTime), () {
             Navigator.of(context).pop(true);
           });
           return AlertDialog(
             title: Text("Zaměřování"),
-            content: Text("Probíhá zaměřování vaší lokace. Počkejte ${aimingTime * 2} sekund."),
+            content: Text("Probíhá zaměřování vaší lokace. Počkejte ${aimingTime} sekund."),
             actions: [
               Row (
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -57,7 +56,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                       height: 75.0,
                       width: 75.0,
                     ),
-                    SizedBox(width: 110),
+                    SizedBox(width: 100),
                   ]
               )
             ],
@@ -75,7 +74,7 @@ class _Active_WalkingState extends State<Active_Walking> {
 
     Future.delayed(Duration.zero, () => showAlert(context));
 
-    for(int howMany_runs = 0; howMany_runs < 3; howMany_runs++) {
+    for(int howMany_runs = 0; howMany_runs < 4; howMany_runs++) {
       positionAiming = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
       Future.delayed(Duration(seconds: aimingTime), () {
         // Nothing to do here
@@ -84,6 +83,7 @@ class _Active_WalkingState extends State<Active_Walking> {
 
     while(pageIs_open) {
       print("****** while(pageIs_open) was start ******");
+      _stopWatchTimer.onExecute.add(StopWatchExecute.start);
       distanceBetween_points = 0.0;
       // This will be when while(pageIs_open) is running on first time
       if(positionPoint2 == null) {
