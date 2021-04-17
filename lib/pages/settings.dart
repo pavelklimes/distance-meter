@@ -68,7 +68,7 @@ class _SettingsState extends State<Settings> {
                 minWidth: 140.0,
                 height: 60.0,
                 child: RaisedButton(
-                    onPressed: () {delayTime = 15;showDialog(context: context, builder: (context) => new AlertDialog(title: Text("Aplikace nastavena na 100%"),content:Text("Nyní aplikace zatěžuje 100%."), actions:[FlatButton(child: Text("OK"),onPressed:(){Navigator.pop(context);},)],));},
+                    onPressed: () {delayTime = 16;showDialog(context: context, builder: (context) => new AlertDialog(title: Text("Aplikace nastavena na 100%"),content:Text("Nyní aplikace zatěžuje 100%."), actions:[FlatButton(child: Text("OK"),onPressed:(){Navigator.pop(context);},)],));},
                     color: Colors.lightGreenAccent,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60),),
                     child: Text("100%", style: TextStyle(fontSize:35,fontWeight:FontWeight.w400,color:Colors.grey.shade800,),),),

@@ -3,11 +3,12 @@ import 'package:distance_meter/pages/end_walking.dart';
 import 'package:flutter/rendering.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:distance_meter/pages/home.dart';
 import 'dart:async';
 
 final StopWatchTimer _stopWatchTimer = StopWatchTimer();
 
-
+int aimingTime = delayTime ~/ 2;
 
 var ourTime;
 dynamic get_time() {
@@ -19,7 +20,6 @@ dynamic get_time() {
 // Globals variables for distance counting
 double total_distance = 0.0;
 bool pageIs_open = true;
-int delayTime;
 
 class Active_Walking extends StatefulWidget {
   @override
@@ -37,6 +37,34 @@ class _Active_WalkingState extends State<Active_Walking> {
 
   }
 
+  void showAlert(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          Future.delayed(Duration(seconds: aimingTime * 999), () {
+            Navigator.of(context).pop(true);
+          });
+          return AlertDialog(
+            title: Text("Zaměřování"),
+            content: Text("Probíhá zaměřování vaší lokace. Počkejte ${aimingTime * 2} sekund."),
+            actions: [
+              Row (
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Image.asset(
+                      "images/loading.gif",
+                      height: 75.0,
+                      width: 75.0,
+                    ),
+                    SizedBox(width: 110),
+                  ]
+              )
+            ],
+          );
+        });
+  }
+
   void count_distance() async {
     print("******* count_distance() was start*******");
     // variables, what count_distance need
@@ -45,9 +73,11 @@ class _Active_WalkingState extends State<Active_Walking> {
     Position positionPoint2 = null; // Second Location
     Position positionAiming = null; // Aiming Location: This is for setup GPS
 
-    for(int howMany_runs = 0; howMany_runs < 4; howMany_runs++) {
+    Future.delayed(Duration.zero, () => showAlert(context));
+
+    for(int howMany_runs = 0; howMany_runs < 3; howMany_runs++) {
       positionAiming = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
-      Future.delayed(Duration(seconds: delayTime), () {
+      Future.delayed(Duration(seconds: aimingTime), () {
         // Nothing to do here
       });
     }

@@ -4,6 +4,9 @@ import 'info.dart';
 import 'settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+
+int delayTime = 16;
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
