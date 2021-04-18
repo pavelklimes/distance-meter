@@ -5,7 +5,7 @@ import 'settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
-int delayTime = 30;
+int delayTime = 24;
 
 class Home extends StatefulWidget {
   @override
