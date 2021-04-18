@@ -74,7 +74,7 @@ class _Active_WalkingState extends State<Active_Walking> {
 
     Future.delayed(Duration.zero, () => showAlert(context));
 
-    for(int howMany_runs = 0; howMany_runs < 4; howMany_runs++) {
+    for(int howMany_runs = 0; howMany_runs < 3; howMany_runs++) {
       positionAiming = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
       Future.delayed(Duration(seconds: aimingTime), () {
         // Nothing to do here
