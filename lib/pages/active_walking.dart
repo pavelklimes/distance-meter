@@ -1,3 +1,4 @@
+import 'package:distance_meter/loading_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:distance_meter/pages/end_walking.dart';
 import 'package:flutter/rendering.dart';
@@ -5,6 +6,9 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:distance_meter/pages/home.dart';
 import 'dart:async';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+const mainColor = const Color(0xFFbeff19);
 
 final StopWatchTimer _stopWatchTimer = StopWatchTimer();
 
@@ -44,19 +48,20 @@ class _Active_WalkingState extends State<Active_Walking> {
             Navigator.of(context).pop(true);
           });
           return AlertDialog(
-            title: Text("Zaměřování"),
-            content: Text("Probíhá zaměřování vaší lokace. Počkejte ${aimingTime} sekund."),
+            title: Text("Zaměřování", style: TextStyle(fontWeight: FontWeight.w400),),
+            content: Text("Probíhá zaměřování vaší lokace. Počkejte ${aimingTime} sekund.", style: TextStyle(fontWeight: FontWeight.w300)),
             actions: [
               Row (
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Image.asset(
-                      "images/loading.gif",
-                      height: 75.0,
-                      width: 75.0,
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(100, 5, 100, 15),
+                      child: SpinKitRing(
+                        color: mainColor,
+                        size: 50.0,
+                      ),
                     ),
-                    SizedBox(width: 100),
                   ]
               )
             ],
@@ -142,9 +147,9 @@ class _Active_WalkingState extends State<Active_Walking> {
       onWillPop: _onBackPressed,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.limeAccent[200],
+          backgroundColor: mainColor,
           automaticallyImplyLeading: false,
-          title: Text("Měřič", style: TextStyle(color: Colors.grey[800]),),
+          title: Text("Měřič", style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.w300),),
           centerTitle: true,
         ),
 
@@ -174,8 +179,8 @@ class _Active_WalkingState extends State<Active_Walking> {
                         return Text(
                             displayTime,
                             style: const TextStyle(
-                              fontSize: 40.0,
-                              fontWeight: FontWeight.w300,
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.w200,
                             )
                         );
                       }
@@ -187,8 +192,8 @@ class _Active_WalkingState extends State<Active_Walking> {
                     '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(1) : total_distance.toStringAsFixed(1) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
                     style: TextStyle(
                       color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 47.3,
+                      fontWeight: FontWeight.w300,
+                      fontSize: 50,
 
 
                     ),
@@ -220,16 +225,16 @@ class _Active_WalkingState extends State<Active_Walking> {
                           borderRadius: BorderRadius.circular(60),
                         ),
                         child: Text(
-                          "Ukončit",
+                          "UKONČIT",
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w400,
                             color: Colors.grey[100],
-                            fontSize: 21,
+                            fontSize: 20,
                           ),
                         ),
                       )
                   ),
-                  SizedBox(height: 63,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                  SizedBox(height: 70,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
                   Image.asset(
                     "images/watermarks/watermark.png",
                     height: 100, width: 250,

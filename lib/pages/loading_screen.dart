@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'welcome.dart';
 
+const mainColor = const Color(0xFFbeff19);
+
 class Loading extends StatefulWidget {
 
   @override
@@ -34,7 +36,7 @@ class _LoadingState extends State<Loading> {
     return WillPopScope(
       onWillPop: _onBackPressed,
         child: Scaffold(
-          backgroundColor: Colors.limeAccent.shade200,
+          backgroundColor: mainColor,
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
@@ -46,7 +48,7 @@ class _LoadingState extends State<Loading> {
                     color: Colors.red,
                     size: 50.0,
                   ),
-                  SizedBox(height: 75,),
+                  SizedBox(height: 73,),
                   Image.asset(
                     "images/logo_full.png",
                     height: 200, width: 200,

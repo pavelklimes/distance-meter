@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'home.dart';
 import 'package:after_layout/after_layout.dart';
 
+const mainColor = const Color(0xFFbeff19);
 
 class Splash extends StatefulWidget {
   @override
@@ -67,7 +68,7 @@ class IntroScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.limeAccent.shade200,
+          backgroundColor: mainColor,
           title: Padding(
             padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
             child: Text(
@@ -97,7 +98,7 @@ class IntroScreen extends StatelessWidget {
                   Home()), (Route<dynamic> route) => false);
 
             },
-            backgroundColor: Colors.limeAccent.shade200,
+            backgroundColor: mainColor,
             child: Icon(Icons.arrow_forward, color: Colors.grey.shade800, size: 35,),
           ),
         ),

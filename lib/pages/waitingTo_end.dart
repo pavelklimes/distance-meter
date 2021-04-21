@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+const mainColor = const Color(0xFFbeff19);
+
 class End_Loading extends StatefulWidget {
 
   @override
@@ -32,22 +34,25 @@ class _End_Loading extends State<End_Loading> {
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
-        backgroundColor: Colors.limeAccent.shade200,
-        body: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SpinKitThreeBounce(
-                color: Colors.red,
-                size: 50.0,
-              ),
-              Image.asset(
-                "images/logo_full.png",
-                height: 200, width: 200,
-              ),
-            ],
+        backgroundColor: mainColor,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SpinKitThreeBounce(
+                  color: Colors.red,
+                  size: 50.0,
+                ),
+                SizedBox(height: 73,),
+                Image.asset(
+                  "images/logo_full.png",
+                  height: 200, width: 200,
+                ),
+              ],
+            ),
           ),
         ),
       ),

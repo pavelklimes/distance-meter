@@ -1,7 +1,10 @@
+import 'package:distance_meter/activity_icons_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'active_walking.dart';
+
+const mainColor = const Color(0xFFbeff19);
 
 class Settings extends StatefulWidget {
   @override
@@ -23,15 +26,15 @@ class _SettingsState extends State<Settings> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           iconTheme: IconThemeData(color: Colors.grey.shade800),
-          backgroundColor: Colors.limeAccent.shade200,
+          backgroundColor: mainColor,
           title: Padding(
-            padding: const EdgeInsets.fromLTRB(35, 0, 0, 0),
+            padding: const EdgeInsets.all(25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children:
               [
                 Icon(Icons.settings, color: Colors.grey.shade800, size: 30,),
-                Container(padding: const EdgeInsets.all(8.0), child: Text("Nastavení", style: TextStyle(color: Colors.grey.shade800, fontSize: 30, fontWeight: FontWeight.w700),))
+                Container(padding: const EdgeInsets.all(8.0), child: Text("Nastavení", style: TextStyle(color: Colors.grey.shade800, fontSize: 30, fontWeight: FontWeight.w300),))
               ],
             ),
           ),
@@ -55,11 +58,12 @@ class _SettingsState extends State<Settings> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(30, 20, 30, 10),
+                padding: const EdgeInsets.all(20),
                 child: Text(
                   "Zde si vyberte optimální nastavení.\nPokud vám aplikace funguje hůř vyberte si slabší nastavení.",
                   style: TextStyle(
                     fontSize: 20,
+                    fontWeight: FontWeight.w300
                   ),
                 ),
               ),
@@ -71,7 +75,7 @@ class _SettingsState extends State<Settings> {
                     onPressed: () {delayTime = 24;showDialog(context: context, builder: (context) => new AlertDialog(title: Text("Aplikace nastavena na 100%"),content:Text("Nyní aplikace zatěžuje 100%."), actions:[FlatButton(child: Text("OK"),onPressed:(){Navigator.pop(context);},)],));},
                     color: Colors.lightGreenAccent,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60),),
-                    child: Text("100%", style: TextStyle(fontSize:35,fontWeight:FontWeight.w400,color:Colors.grey.shade800,),),),
+                    child: Icon(ActivityIcons.directions_bike, size: 35,)),
               ),
               SizedBox(height: 25,),
               ButtonTheme(
@@ -81,7 +85,7 @@ class _SettingsState extends State<Settings> {
                   onPressed: () {delayTime = 30;showDialog(context: context, builder: (context) => new AlertDialog(title: Text("Aplikace nastavena na 75%"),content:Text("Nyní aplikace zatěžuje 75%."), actions:[FlatButton(child: Text("OK"),onPressed:(){Navigator.pop(context);},)],));},
                   color: Colors.lightGreenAccent,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60),),
-                  child: Text("75%", style: TextStyle(fontSize:35,fontWeight:FontWeight.w400,color:Colors.grey.shade800,),),),
+                  child: Icon(ActivityIcons.directions_run, size: 35,)),
               ),
               SizedBox(height: 25,),
               ButtonTheme(
@@ -91,9 +95,9 @@ class _SettingsState extends State<Settings> {
                   onPressed: () {delayTime = 40;showDialog(context: context, builder: (context) => new AlertDialog(title: Text("Aplikace nastavena na 50%"),content:Text("Nyní aplikace zatěžuje 50%."), actions:[FlatButton(child: Text("OK"),onPressed:(){Navigator.pop(context);},)],));},
                   color: Colors.lightGreenAccent,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60),),
-                  child: Text("50%", style: TextStyle(fontSize:35,fontWeight:FontWeight.w400,color:Colors.grey.shade800,),),),
+                  child: Icon(ActivityIcons.directions_walk, size: 35,)),
               ),
-              SizedBox(height: 65,),
+              SizedBox(height: 75,),
               Image.asset(
                 "images/watermarks/watermark.png",
                 height: 100, width: 250,

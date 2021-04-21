@@ -12,6 +12,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'dart:math';
 
+const mainColor = const Color(0xFFbeff19);
 
 Future<bool> _onBackPressed() {
   Future<bool> a;
@@ -39,11 +40,11 @@ class _End_WalkingState extends State<End_Walking> {
           controller: _screenshotController,
               child: Scaffold(
                 appBar: AppBar(
-                  backgroundColor: Colors.limeAccent[200],
+                  backgroundColor: mainColor,
                   automaticallyImplyLeading: false,
                   title: Padding(
                     padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                    child: Text("Konec aktivity", style: TextStyle(color: Colors.grey[800]),),
+                    child: Text("Konec aktivity", style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.w300),),
                   ),
                   centerTitle: true,
                 ),
@@ -55,12 +56,13 @@ class _End_WalkingState extends State<End_Walking> {
                       Image.asset("images/app_icon.png", height: 100, width: 100,),
                       SizedBox(height: 25,),
                       Align(
-                        alignment: Alignment(-0.51, 0.0),
+                        alignment: Alignment(-0.5, 0.0),
                         child: Text(
                           "Doba trvání:",
                           style: TextStyle(
                             color: Colors.grey[850],
                             fontSize: 20,
+                            fontWeight: FontWeight.w300
                           ),
                         ),
                       ),
@@ -68,20 +70,20 @@ class _End_WalkingState extends State<End_Walking> {
                         ourTime,
                         style: TextStyle(
                           color: Colors.black,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 47.3,
-
+                          fontWeight: FontWeight.w300,
+                          fontSize: 45,
                         ),
                       ),
                       SizedBox(height: 20,),
 
                       Align(
-                        alignment: Alignment(-0.51, 0.0),
+                        alignment: Alignment(-0.5, 0.0),
                         child: Text(
                           "Délka trasy:",
                           style: TextStyle(
                             color: Colors.grey[850],
                             fontSize: 20,
+                            fontWeight: FontWeight.w300
                           ),
                         ),
                       ),
@@ -89,10 +91,8 @@ class _End_WalkingState extends State<End_Walking> {
                         '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(1) : total_distance.toStringAsFixed(1) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
                         style: TextStyle(
                           color: Colors.black,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 47.3,
-
-
+                          fontWeight: FontWeight.w300,
+                          fontSize: 45,
                         ),
                       ),
 
@@ -121,7 +121,7 @@ class _End_WalkingState extends State<End_Walking> {
                                   });
                                 },
 
-                                color: Colors.lightGreenAccent,
+                                color: mainColor,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(60),
                                 ),
@@ -147,11 +147,11 @@ class _End_WalkingState extends State<End_Walking> {
                                   borderRadius: BorderRadius.circular(60),
                                 ),
                                 child: Text(
-                                  "Ukončit",
+                                  "UKONČIT",
                                   style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey[850],
-                                    fontSize: 21,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.grey.shade800,
+                                    fontSize: 20,
                                   ),
                                 ),
                               )
@@ -160,7 +160,7 @@ class _End_WalkingState extends State<End_Walking> {
                       ),
 
 
-                      SizedBox(height: 34,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
+                      SizedBox(height: 38,), //TODO: SizedBox upravit podle potřeby a po přidání widgetů.
                       Align(
                         alignment: Alignment(-0.0, 0.0),
                         child: Image.asset(

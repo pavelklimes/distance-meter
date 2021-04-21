@@ -4,7 +4,7 @@ import 'info.dart';
 import 'settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
+const mainColor = const Color(0xFFbeff19);
 int delayTime = 24;
 
 class Home extends StatefulWidget {
@@ -31,10 +31,10 @@ class _HomeState extends State<Home> {
         child: Scaffold(
           appBar: new AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Colors.limeAccent.shade200,
+            backgroundColor: mainColor,
             title: new Text(
               "Dis/Co",
-              style: TextStyle(color: Colors.grey.shade800,),
+              style: TextStyle(color: Colors.grey.shade800, fontWeight: FontWeight.w300),
             ),
             centerTitle: true,
             actions: [
@@ -83,16 +83,16 @@ class _HomeState extends State<Home> {
                             });
                           },
 
-                          color: Colors.limeAccent[400],
+                          color: mainColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(60),
                           ),
                           child: Text(
-                            "Start",
+                            "START",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w300,
                               color: Colors.grey[800],
-                              fontSize: 20.0,
+                              fontSize: 30.0,
                             ),
                           ),
                         )

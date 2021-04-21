@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 
+const mainColor = const Color(0xFFbeff19);
+
 class Info extends StatefulWidget {
   @override
   _InfoState createState() => _InfoState();
@@ -20,15 +22,15 @@ class _InfoState extends State<Info> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           iconTheme: IconThemeData(color: Colors.grey.shade800),
-          backgroundColor: Colors.limeAccent.shade200,
+          backgroundColor: mainColor,
           title: Padding(
-            padding: const EdgeInsets.fromLTRB(60, 0, 0, 0),
+            padding: const EdgeInsets.all(65),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children:
               [
                 Icon(Icons.info, color: Colors.grey.shade800, size: 30,),
-                Container(padding: const EdgeInsets.all(8.0), child: Text("info", style: TextStyle(color: Colors.grey.shade800, fontSize: 30, fontWeight: FontWeight.w700),))
+                Container(padding: const EdgeInsets.all(8.0), child: Text("info", style: TextStyle(color: Colors.grey.shade800, fontSize: 30, fontWeight: FontWeight.w300),))
               ],
             ),
           ),
@@ -55,11 +57,11 @@ class _InfoState extends State<Info> {
               //////////
               Padding(
                 padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-                child: Text("K čemu je aplikace určena?", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+                child: Text("K čemu je aplikace určena?", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline, fontWeight: FontWeight.w300),),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-                child: Text("Aplikace Dis/Co - Distance Counter slouží, pro měření uražené vzdálenosti. Při využití aplikace se předpokládají aktivity, které vyžadují fyzickou aktivitu (chůze, běh, cyklistika, apod.)", style: TextStyle(fontSize: 16,)),
+                child: Text("Aplikace Dis/Co - Distance Counter slouží, pro měření uražené vzdálenosti. Při využití aplikace se předpokládají aktivity, které vyžadují fyzickou aktivitu (chůze, běh, cyklistika, apod.)", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300)),
               ),
 
 
@@ -67,33 +69,33 @@ class _InfoState extends State<Info> {
               //////////
               Padding(
                 padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-                child: Text("Jak aplikaci využívat?", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+                child: Text("Jak aplikaci využívat?", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline, fontWeight: FontWeight.w300),),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-                child: Text("Na domovské stránce je tlačítko [Start], po kterém se začne měřit uražená vzdálenost. Informace o měření se vypisují i během měření. Pro ukončení, stačí kliknout tlačítko [Ukončit]. Poté se vypíšou informace o měření. Na stránce s informacemi jsou tlačítka [Screeshot] a [Ukončit]. [Screenshot] pořídí snímek obrazovky a uloží ho do mobilního telefonu. [Ukončit] vám ukončí aplikaci.", style: TextStyle(fontSize: 16,)),
+                child: Text("Na domovské stránce je tlačítko [Start], po kterém se začne měřit uražená vzdálenost. Informace o měření se vypisují i během měření. Pro ukončení, stačí kliknout tlačítko [Ukončit]. Poté se vypíšou informace o měření. Na stránce s informacemi jsou tlačítka [Screeshot] a [Ukončit]. [Screenshot] pořídí snímek obrazovky a uloží ho do mobilního telefonu. [Ukončit] vám ukončí aplikaci.", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300)),
               ),
 
 
               //////////
               Padding(
                 padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-                child: Text("Autoři", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+                child: Text("Autoři", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline, fontWeight: FontWeight.w300),),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-                child: Text("Jindřich Klimeš,\nPavel Klimeš\n________________\nKlimes Systems", style: TextStyle(fontSize: 16,)),
+                child: Text("Jindřich Klimeš,\nPavel Klimeš\n________________\nKlimes Systems", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300)),
               ),
 
 
               //////////
               Padding(
                 padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-                child: Text("Kontakt", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline),),
+                child: Text("Kontakt", style: TextStyle(fontSize: 26, decoration: TextDecoration.underline, fontWeight: FontWeight.w300),),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 2, 30, 0),
-                child: Text("Jindřich Klimeš:\nE-MAIL: henryklimes@protonmail.com\nTwitter: @henryklimes\n\nPavel Klimeš:\nE-MAIL: klimespavel@protonmail.com\nTwitter: @pavelklimes_", style: TextStyle(fontSize: 16,)),
+                child: Text("Jindřich Klimeš:\nE-MAIL: henryklimes@protonmail.com\nTwitter: @henryklimes\n\nPavel Klimeš:\nE-MAIL: klimespavel@protonmail.com\nTwitter: @pavelklimes_", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300)),
               ),
 
               SizedBox(height: 30,),
