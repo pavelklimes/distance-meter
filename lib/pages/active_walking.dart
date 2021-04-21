@@ -48,7 +48,7 @@ class _Active_WalkingState extends State<Active_Walking> {
             Navigator.of(context).pop(true);
           });
           return AlertDialog(
-            title: Text("Zaměřování", style: TextStyle(fontWeight: FontWeight.w400),),
+            title: Text("Zaměřování", style: TextStyle(fontWeight: FontWeight.w500),),
             content: Text("Probíhá zaměřování vaší lokace. Počkejte ${aimingTime} sekund.", style: TextStyle(fontWeight: FontWeight.w300)),
             actions: [
               Row (
@@ -149,7 +149,7 @@ class _Active_WalkingState extends State<Active_Walking> {
         appBar: AppBar(
           backgroundColor: mainColor,
           automaticallyImplyLeading: false,
-          title: Text("Měřič", style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.w300),),
+          title: Text("Měřič", style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.w600),),
           centerTitle: true,
         ),
 
@@ -179,8 +179,8 @@ class _Active_WalkingState extends State<Active_Walking> {
                         return Text(
                             displayTime,
                             style: const TextStyle(
-                              fontSize: 30.0,
-                              fontWeight: FontWeight.w200,
+                              fontSize: 35.0,
+                              fontWeight: FontWeight.w400,
                             )
                         );
                       }
@@ -192,7 +192,7 @@ class _Active_WalkingState extends State<Active_Walking> {
                     '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(1) : total_distance.toStringAsFixed(1) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
                     style: TextStyle(
                       color: Colors.black,
-                      fontWeight: FontWeight.w300,
+                      fontWeight: FontWeight.w500,
                       fontSize: 50,
 
 
@@ -225,9 +225,9 @@ class _Active_WalkingState extends State<Active_Walking> {
                           borderRadius: BorderRadius.circular(60),
                         ),
                         child: Text(
-                          "UKONČIT",
+                          "Ukončit",
                           style: TextStyle(
-                            fontWeight: FontWeight.w400,
+                            fontWeight: FontWeight.w700,
                             color: Colors.grey[100],
                             fontSize: 20,
                           ),

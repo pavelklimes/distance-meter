@@ -30,7 +30,7 @@ class _InfoState extends State<Info> {
               children:
               [
                 Icon(Icons.info, color: Colors.grey.shade800, size: 30,),
-                Container(padding: const EdgeInsets.all(8.0), child: Text("info", style: TextStyle(color: Colors.grey.shade800, fontSize: 30, fontWeight: FontWeight.w300),))
+                Container(padding: const EdgeInsets.all(8.0), child: Text("info", style: TextStyle(color: Colors.grey.shade800, fontSize: 30, fontWeight: FontWeight.w600),))
               ],
             ),
           ),

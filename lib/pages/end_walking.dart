@@ -44,7 +44,7 @@ class _End_WalkingState extends State<End_Walking> {
                   automaticallyImplyLeading: false,
                   title: Padding(
                     padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                    child: Text("Konec aktivity", style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.w300),),
+                    child: Text("Konec aktivity", style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.w600),),
                   ),
                   centerTitle: true,
                 ),
@@ -60,7 +60,7 @@ class _End_WalkingState extends State<End_Walking> {
                         child: Text(
                           "Doba trvání:",
                           style: TextStyle(
-                            color: Colors.grey[850],
+                            color: Colors.grey[900],
                             fontSize: 20,
                             fontWeight: FontWeight.w300
                           ),
@@ -70,7 +70,7 @@ class _End_WalkingState extends State<End_Walking> {
                         ourTime,
                         style: TextStyle(
                           color: Colors.black,
-                          fontWeight: FontWeight.w300,
+                          fontWeight: FontWeight.w400,
                           fontSize: 45,
                         ),
                       ),
@@ -81,7 +81,7 @@ class _End_WalkingState extends State<End_Walking> {
                         child: Text(
                           "Délka trasy:",
                           style: TextStyle(
-                            color: Colors.grey[850],
+                            color: Colors.grey[900],
                             fontSize: 20,
                             fontWeight: FontWeight.w300
                           ),
@@ -91,7 +91,7 @@ class _End_WalkingState extends State<End_Walking> {
                         '${total_distance != null ? total_distance > 1000 ? (total_distance / 1000).toStringAsFixed(1) : total_distance.toStringAsFixed(1) : 0} ${total_distance != null ? total_distance > 1000 ? 'km' : 'metrů' : 0}',
                         style: TextStyle(
                           color: Colors.black,
-                          fontWeight: FontWeight.w300,
+                          fontWeight: FontWeight.w400,
                           fontSize: 45,
                         ),
                       ),
@@ -147,11 +147,11 @@ class _End_WalkingState extends State<End_Walking> {
                                   borderRadius: BorderRadius.circular(60),
                                 ),
                                 child: Text(
-                                  "UKONČIT",
+                                  "Ukončit",
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.grey.shade800,
-                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.grey[850],
+                                    fontSize: 23,
                                   ),
                                 ),
                               )

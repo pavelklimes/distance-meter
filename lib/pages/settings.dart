@@ -34,7 +34,7 @@ class _SettingsState extends State<Settings> {
               children:
               [
                 Icon(Icons.settings, color: Colors.grey.shade800, size: 30,),
-                Container(padding: const EdgeInsets.all(8.0), child: Text("Nastavení", style: TextStyle(color: Colors.grey.shade800, fontSize: 30, fontWeight: FontWeight.w300),))
+                Container(padding: const EdgeInsets.all(8.0), child: Text("Nastavení", style: TextStyle(color: Colors.grey.shade800, fontSize: 30, fontWeight: FontWeight.w600),))
               ],
             ),
           ),

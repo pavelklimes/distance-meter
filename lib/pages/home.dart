@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
             backgroundColor: mainColor,
             title: new Text(
               "Dis/Co",
-              style: TextStyle(color: Colors.grey.shade800, fontWeight: FontWeight.w300),
+              style: TextStyle(color: Colors.grey.shade800, fontWeight: FontWeight.w600),
             ),
             centerTitle: true,
             actions: [
@@ -88,10 +88,10 @@ class _HomeState extends State<Home> {
                             borderRadius: BorderRadius.circular(60),
                           ),
                           child: Text(
-                            "START",
+                            "Start",
                             style: TextStyle(
-                              fontWeight: FontWeight.w300,
-                              color: Colors.grey[800],
+                              fontWeight: FontWeight.w500,
+                              color: Colors.grey[850],
                               fontSize: 30.0,
                             ),
                           ),
